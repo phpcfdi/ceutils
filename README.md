@@ -233,6 +233,34 @@ $transaccion->addCompNal([
 $xml = $creator->asXml();
 ```
 
+## Ejemplo básico de validación
+
+Los objetos creadores tienen oportunidad de validar errores del esquema XML.
+
+```php
+<?php
+
+use PhpCfdi\CeUtils\BalanzaCreator13;
+
+$creator = new BalanzaCreator13([]);
+$errors = $creator->validate();
+if ([] === $errors) {
+    echo 'No se han encontrado errores', PHP_EOL;
+} else {
+    echo print_r($errors, true), PHP_EOL;
+}
+```
+
+El ejemplo anterior mostraría una larga lista como:
+
+```text
+[0] => Element '{http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion}Balanza': The attribute 'RFC' is required but missing.
+[1] => Element '{http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion}Balanza': The attribute 'Mes' is required but missing.
+[2] => Element '{http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion}Balanza': The attribute 'Anio' is required but missing.
+[3] => Element '{http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion}Balanza': The attribute 'TipoEnvio' is required but missing.
+[4] => Element '{http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion}Balanza': Missing child element(s). Expected is ( {http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion}Ctas ).
+```
+
 ## Soporte
 
 Puedes obtener soporte abriendo un ticker en Github.

@@ -10,6 +10,8 @@ use CfdiUtils\Nodes\NodeInterface;
 use CfdiUtils\Nodes\XmlNodeUtils;
 use CfdiUtils\XmlResolver\XmlResolver;
 use CfdiUtils\XmlResolver\XmlResolverPropertyTrait;
+use PhpCfdi\CeUtils\XmlFollowSchemasValidation\XmlFollowSchemasValidation;
+use PhpCfdi\CeUtils\XmlFollowSchemasValidation\XmlFollowSchemasValidationException;
 use PhpCfdi\Credentials\Credential;
 
 abstract class AbstractCreator
@@ -60,5 +62,20 @@ abstract class AbstractCreator
     public function asXml(): string
     {
         return XmlNodeUtils::nodeToXmlString($this->getRootNode());
+    }
+
+    /**
+     * @return string[]
+     */
+    public function validate(): array
+    {
+        $validator = new XmlFollowSchemasValidation();
+        $xmlResolver = $this->hasXmlResolver() ? $this->getXmlResolver() : null;
+        try {
+            $validator->validate($this->asXml(), $xmlResolver);
+        } catch (XmlFollowSchemasValidationException $exception) {
+            return $exception->getErrors();
+        }
+        return [];
     }
 }

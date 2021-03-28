@@ -1,3 +1,3 @@
 # phpcfdi/ceutils To Do List
 
-1. Agregar validación de XML schemas
+1. Validar usando CfdiUtils Assets
