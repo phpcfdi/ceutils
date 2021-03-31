@@ -85,11 +85,7 @@ $creator = new CatalogoCreator13([
     'FechaModBal' => '2015-01-01',
 ]);
 
-$fiel = Credential::openFiles(
-    $this->filePath('fake-fiel/EKU9003173C9.cer'),
-    $this->filePath('fake-fiel/EKU9003173C9.key'),
-    trim($this->fileContents('fake-fiel/EKU9003173C9-password.txt'))
-);
+/** @var Credential $fiel */
 
 $creator->addSello($fiel);
 
@@ -131,11 +127,7 @@ $creator = new AuxiliarFoliosCreator13([
     'NumTramite' => '123456',
 ]);
 
-$fiel = Credential::openFiles(
-    $this->filePath('fake-fiel/EKU9003173C9.cer'),
-    $this->filePath('fake-fiel/EKU9003173C9.key'),
-    trim($this->fileContents('fake-fiel/EKU9003173C9-password.txt'))
-);
+/** @var Credential $fiel */
 
 $creator->addSello($fiel);
 
@@ -172,11 +164,7 @@ $creator = new AuxiliarCuentasCreator13([
     'NumTramite' => '123456',
 ]);
 
-$fiel = Credential::openFiles(
-    $this->filePath('fake-fiel/EKU9003173C9.cer'),
-    $this->filePath('fake-fiel/EKU9003173C9.key'),
-    trim($this->fileContents('fake-fiel/EKU9003173C9-password.txt'))
-);
+/** @var Credential $fiel */
 
 $creator->addSello($fiel);
 
@@ -195,6 +183,51 @@ $cuenta->addDetalleAux([
     'Concepto' => 'concepto 1',
     'Debe' => '50',
     'Haber' => '0'
+]);
+
+$xml = $creator->asXml();
+```
+
+## Ejemplo básico de uso PolizasCreator13()
+
+```php
+<?php
+
+use PhpCfdi\CeUtils\PolizasCreator13;
+use PhpCfdi\Credentials\Credential;
+
+$creator = new PolizasCreator13([
+    'Mes' => '01',
+    'Anio' => '2021',
+    'TipoSolicitud' => 'AF',
+    'NumTramite' => '123456',
+]);
+
+/** @var Credential $fiel */
+
+$creator->addSello($fiel);
+
+$polizas = $creator->polizas();
+
+$poliza = $polizas->addPoliza([
+    'NumUnIdenPol' => '123456',
+    'Fecha' => '2021-03-31',
+    'Concepto' => 'Concepto póliza'
+]);
+
+$transaccion = $poliza->addTransaccion([
+    'NumCta' => '123',
+    'DesCta' => 'Descripción cuenta',
+    'Concepto' => 'Concepto transacción',
+    'Debe' => '100.00',
+    'Haber' => '0.00',
+]);
+
+$transaccion->addCompNal([
+    'UUID_CFDI' => 'adf9d1d2-574d-4781-8874-a9fb1e79930a',
+    'RFC' => 'XAXX010101000',
+    'MontoTotal' => '100.00',
+    'Moneda' => 'MXN',
 ]);
 
 $xml = $creator->asXml();
