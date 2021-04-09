@@ -40,14 +40,14 @@ abstract class AbstractCreator
     {
         $this->getRootNode()->addAttributes([
             'RFC' => $fiel->certificate()->rfc(),
-            'noCertificado' => $fiel->certificate()->serialNumber()->decimal(),
-            'certificado' => $fiel->certificate()->pemAsOneLine(),
+            'noCertificado' => $fiel->certificate()->serialNumber()->bytes(),
+            'Certificado' => $fiel->certificate()->pemAsOneLine(),
         ]);
 
         $cadenaDeOrigen = $this->buildCadenaDeOrigen();
 
         $this->getRootNode()->addAttributes([
-            'sello' => base64_encode(
+            'Sello' => base64_encode(
                 $fiel->privateKey()->sign($cadenaDeOrigen, $this->getSelloAlgorithm())
             ),
         ]);
