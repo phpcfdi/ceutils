@@ -7,6 +7,8 @@ namespace PhpCfdi\CeUtils;
 use CfdiUtils\Nodes\NodeInterface;
 use PhpCfdi\CeUtils\Definitions\Balanza13Definition;
 use PhpCfdi\CeUtils\Elements\Balanza13\Balanza;
+use PhpCfdi\CeUtils\Validate\Balanza13\Balanza13MultiValidator;
+use PhpCfdi\CeUtils\Validate\MultiValidator;
 
 class BalanzaCreator13 extends AbstractCreator
 {
@@ -34,5 +36,10 @@ class BalanzaCreator13 extends AbstractCreator
     protected function getXsltLocation(): string
     {
         return Balanza13Definition::XSLT_LOCATION;
+    }
+
+    protected function createValidator(): MultiValidator
+    {
+        return new Balanza13MultiValidator();
     }
 }

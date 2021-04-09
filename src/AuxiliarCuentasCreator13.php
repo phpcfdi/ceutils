@@ -7,6 +7,8 @@ namespace PhpCfdi\CeUtils;
 use CfdiUtils\Elements\Common\AbstractElement;
 use PhpCfdi\CeUtils\Definitions\AuxiliarCuentas13Definition;
 use PhpCfdi\CeUtils\Elements\AuxiliarCuentas13\AuxiliarCtas;
+use PhpCfdi\CeUtils\Validate\AuxiliarCuentas13\AuxiliarCuentas13MultiValidator;
+use PhpCfdi\CeUtils\Validate\MultiValidator;
 
 class AuxiliarCuentasCreator13 extends AbstractCreator
 {
@@ -34,5 +36,10 @@ class AuxiliarCuentasCreator13 extends AbstractCreator
     protected function getXsltLocation(): string
     {
         return AuxiliarCuentas13Definition::XSLT_LOCATION;
+    }
+
+    protected function createValidator(): MultiValidator
+    {
+        return new AuxiliarCuentas13MultiValidator();
     }
 }

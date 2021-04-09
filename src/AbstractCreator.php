@@ -8,10 +8,10 @@ use CfdiUtils\CadenaOrigen\DOMBuilder;
 use CfdiUtils\CadenaOrigen\XsltBuilderPropertyTrait;
 use CfdiUtils\Nodes\NodeInterface;
 use CfdiUtils\Nodes\XmlNodeUtils;
+use CfdiUtils\Validate\Asserts;
 use CfdiUtils\XmlResolver\XmlResolver;
 use CfdiUtils\XmlResolver\XmlResolverPropertyTrait;
-use PhpCfdi\CeUtils\XmlFollowSchemasValidation\XmlFollowSchemasValidation;
-use PhpCfdi\CeUtils\XmlFollowSchemasValidation\XmlFollowSchemasValidationException;
+use PhpCfdi\CeUtils\Validate\MultiValidator;
 use PhpCfdi\Credentials\Credential;
 
 abstract class AbstractCreator
@@ -28,6 +28,8 @@ abstract class AbstractCreator
     abstract protected function getRootNode(): NodeInterface;
 
     abstract protected function getXsltLocation(): string;
+
+    abstract protected function createValidator(): MultiValidator;
 
     protected function getSelloAlgorithm(): int
     {
@@ -64,18 +66,15 @@ abstract class AbstractCreator
         return XmlNodeUtils::nodeToXmlString($this->getRootNode());
     }
 
-    /**
-     * @return string[]
-     */
-    public function validate(): array
+    public function validate(): Asserts
     {
-        $validator = new XmlFollowSchemasValidation();
-        $xmlResolver = $this->hasXmlResolver() ? $this->getXmlResolver() : null;
-        try {
-            $validator->validate($this->asXml(), $xmlResolver);
-        } catch (XmlFollowSchemasValidationException $exception) {
-            return $exception->getErrors();
-        }
-        return [];
+        $validator = $this->createValidator();
+
+        $hydrater = $validator->getHydrater();
+        $hydrater->setXmlString($this->asXml());
+        $hydrater->setXmlResolver($this->xmlResolver);
+        $hydrater->setXsltBuilder($this->xsltBuilder);
+
+        return $validator->validate($this->getRootNode());
     }
 }

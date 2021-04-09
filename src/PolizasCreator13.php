@@ -7,6 +7,8 @@ namespace PhpCfdi\CeUtils;
 use CfdiUtils\Nodes\NodeInterface;
 use PhpCfdi\CeUtils\Definitions\Polizas13Definition;
 use PhpCfdi\CeUtils\Elements\Polizas13\Polizas;
+use PhpCfdi\CeUtils\Validate\MultiValidator;
+use PhpCfdi\CeUtils\Validate\Polizas13\Polizas13MultiValidator;
 
 class PolizasCreator13 extends AbstractCreator
 {
@@ -34,5 +36,10 @@ class PolizasCreator13 extends AbstractCreator
     protected function getXsltLocation(): string
     {
         return Polizas13Definition::XSLT_LOCATION;
+    }
+
+    protected function createValidator(): MultiValidator
+    {
+        return new Polizas13MultiValidator();
     }
 }
