@@ -5,21 +5,21 @@ declare(strict_types=1);
 namespace PhpCfdi\CeUtils\Elements\Polizas13;
 
 use CfdiUtils\Elements\Common\AbstractElement;
+use PhpCfdi\CeUtils\Definitions\Polizas13Definition;
 
 class Polizas extends AbstractElement
 {
     public function getElementName(): string
     {
-        return 'PLZ:Polizas';
+        return Polizas13Definition::ELEMENT_NAME;
     }
 
     public function getFixedAttributes(): array
     {
         return [
-            'xmlns:PLZ' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/PolizasPeriodo',
+            'xmlns:PLZ' => Polizas13Definition::NAMESPACE,
             'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
-            'xsi:schemaLocation' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/PolizasPeriodo'
-                . ' http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/PolizasPeriodo/PolizasPeriodo_1_3.xsd',
+            'xsi:schemaLocation' => Polizas13Definition::NAMESPACE . ' ' . Polizas13Definition::XSD_LOCATION,
             'Version' => '1.3',
         ];
     }

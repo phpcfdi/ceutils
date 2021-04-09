@@ -5,21 +5,22 @@ declare(strict_types=1);
 namespace PhpCfdi\CeUtils\Elements\AuxiliarFolios13;
 
 use CfdiUtils\Elements\Common\AbstractElement;
+use PhpCfdi\CeUtils\Definitions\AuxiliarFolios13Definition;
 
 class RepAuxFol extends AbstractElement
 {
     public function getElementName(): string
     {
-        return 'RepAux:RepAuxFol';
+        return AuxiliarFolios13Definition::ELEMENT_NAME;
     }
 
     public function getFixedAttributes(): array
     {
         return [
-            'xmlns:RepAux' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/AuxiliarFolios',
+            'xmlns:RepAux' => AuxiliarFolios13Definition::NAMESPACE,
             'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
-            'xsi:schemaLocation' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/AuxiliarFolios'
-                . ' http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/AuxiliarFolios/AuxiliarFolios_1_3.xsd',
+            'xsi:schemaLocation' => AuxiliarFolios13Definition::NAMESPACE
+                . ' ' . AuxiliarFolios13Definition::XSD_LOCATION,
             'Version' => '1.3',
         ];
     }

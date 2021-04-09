@@ -5,21 +5,21 @@ declare(strict_types=1);
 namespace PhpCfdi\CeUtils\Elements\Balanza13;
 
 use CfdiUtils\Elements\Common\AbstractElement;
+use PhpCfdi\CeUtils\Definitions\Balanza13Definition;
 
 class Balanza extends AbstractElement
 {
     public function getElementName(): string
     {
-        return 'BCE:Balanza';
+        return Balanza13Definition::ELEMENT_NAME;
     }
 
     public function getFixedAttributes(): array
     {
         return [
-            'xmlns:BCE' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion',
+            'xmlns:BCE' => Balanza13Definition::NAMESPACE,
             'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
-            'xsi:schemaLocation' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion'
-                . ' http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion/BalanzaComprobacion_1_3.xsd',
+            'xsi:schemaLocation' => Balanza13Definition::NAMESPACE . ' ' . Balanza13Definition::XSD_LOCATION,
             'Version' => '1.3',
         ];
     }
