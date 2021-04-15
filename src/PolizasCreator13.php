@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PhpCfdi\CeUtils;
 
 use CfdiUtils\Nodes\NodeInterface;
+use PhpCfdi\CeUtils\Definitions\Polizas13Definition;
 use PhpCfdi\CeUtils\Elements\Polizas13\Polizas;
+use PhpCfdi\CeUtils\Validate\MultiValidator;
+use PhpCfdi\CeUtils\Validate\Polizas13\Polizas13MultiValidator;
 
 class PolizasCreator13 extends AbstractCreator
 {
-    public const POLIZAS_XSLT = 'http://www.sat.gob.mx/esquemas/ContabilidadE/'
-    .'1_1/PolizasPeriodo/PolizasPeriodo_1_1.xslt';
-
     private Polizas $polizas;
 
     /**
@@ -35,6 +35,11 @@ class PolizasCreator13 extends AbstractCreator
 
     protected function getXsltLocation(): string
     {
-        return self::POLIZAS_XSLT;
+        return Polizas13Definition::XSLT_LOCATION;
+    }
+
+    protected function createValidator(): MultiValidator
+    {
+        return new Polizas13MultiValidator();
     }
 }

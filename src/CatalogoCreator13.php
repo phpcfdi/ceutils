@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PhpCfdi\CeUtils;
 
 use CfdiUtils\Nodes\NodeInterface;
+use PhpCfdi\CeUtils\Definitions\Catalogo13Definition;
 use PhpCfdi\CeUtils\Elements\Catalogo13\Catalogo;
+use PhpCfdi\CeUtils\Validate\Catalogo13\Catalogo13MultiValidator;
+use PhpCfdi\CeUtils\Validate\MultiValidator;
 
 class CatalogoCreator13 extends AbstractCreator
 {
-    public const CATALOGO_XSLT = 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_1/'
-    . 'CatalogoCuentas/CatalogoCuentas_1_1.xslt';
-
     private Catalogo $catalogo;
 
     /**
@@ -35,6 +35,11 @@ class CatalogoCreator13 extends AbstractCreator
 
     protected function getXsltLocation(): string
     {
-        return self::CATALOGO_XSLT;
+        return Catalogo13Definition::XSLT_LOCATION;
+    }
+
+    protected function createValidator(): MultiValidator
+    {
+        return new Catalogo13MultiValidator();
     }
 }

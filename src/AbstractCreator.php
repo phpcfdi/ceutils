@@ -8,8 +8,10 @@ use CfdiUtils\CadenaOrigen\DOMBuilder;
 use CfdiUtils\CadenaOrigen\XsltBuilderPropertyTrait;
 use CfdiUtils\Nodes\NodeInterface;
 use CfdiUtils\Nodes\XmlNodeUtils;
+use CfdiUtils\Validate\Asserts;
 use CfdiUtils\XmlResolver\XmlResolver;
 use CfdiUtils\XmlResolver\XmlResolverPropertyTrait;
+use PhpCfdi\CeUtils\Validate\MultiValidator;
 use PhpCfdi\Credentials\Credential;
 
 abstract class AbstractCreator
@@ -27,6 +29,8 @@ abstract class AbstractCreator
 
     abstract protected function getXsltLocation(): string;
 
+    abstract protected function createValidator(): MultiValidator;
+
     protected function getSelloAlgorithm(): int
     {
         return OPENSSL_ALGO_SHA1;
@@ -36,14 +40,14 @@ abstract class AbstractCreator
     {
         $this->getRootNode()->addAttributes([
             'RFC' => $fiel->certificate()->rfc(),
-            'noCertificado' => $fiel->certificate()->serialNumber()->decimal(),
-            'certificado' => $fiel->certificate()->pemAsOneLine(),
+            'noCertificado' => $fiel->certificate()->serialNumber()->bytes(),
+            'Certificado' => $fiel->certificate()->pemAsOneLine(),
         ]);
 
         $cadenaDeOrigen = $this->buildCadenaDeOrigen();
 
         $this->getRootNode()->addAttributes([
-            'sello' => base64_encode(
+            'Sello' => base64_encode(
                 $fiel->privateKey()->sign($cadenaDeOrigen, $this->getSelloAlgorithm())
             ),
         ]);
@@ -60,5 +64,17 @@ abstract class AbstractCreator
     public function asXml(): string
     {
         return XmlNodeUtils::nodeToXmlString($this->getRootNode());
+    }
+
+    public function validate(): Asserts
+    {
+        $validator = $this->createValidator();
+
+        $hydrater = $validator->getHydrater();
+        $hydrater->setXmlString($this->asXml());
+        $hydrater->setXmlResolver($this->xmlResolver);
+        $hydrater->setXsltBuilder($this->xsltBuilder);
+
+        return $validator->validate($this->getRootNode());
     }
 }

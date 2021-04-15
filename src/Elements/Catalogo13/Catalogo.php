@@ -5,21 +5,21 @@ declare(strict_types=1);
 namespace PhpCfdi\CeUtils\Elements\Catalogo13;
 
 use CfdiUtils\Elements\Common\AbstractElement;
+use PhpCfdi\CeUtils\Definitions\Catalogo13Definition;
 
 class Catalogo extends AbstractElement
 {
     public function getElementName(): string
     {
-        return 'catalogocuentas:Catalogo';
+        return Catalogo13Definition::ELEMENT_NAME;
     }
 
     public function getFixedAttributes(): array
     {
         return [
-            'xmlns:catalogocuentas' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas',
+            'xmlns:catalogocuentas' => Catalogo13Definition::NAMESPACE,
             'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
-            'xsi:schemaLocation' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas'
-                . 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas/CatalogoCuentas_1_3.xsd',
+            'xsi:schemaLocation' => Catalogo13Definition::NAMESPACE . ' ' . Catalogo13Definition::XSD_LOCATION,
             'Version' => '1.3',
         ];
     }

@@ -233,6 +233,24 @@ $transaccion->addCompNal([
 $xml = $creator->asXml();
 ```
 
+## Ejemplo básico de validación
+
+Los objetos creadores tienen oportunidad de validar el documento que están creando.
+
+```php
+<?php
+
+use PhpCfdi\CeUtils\BalanzaCreator13;
+
+$creator = new BalanzaCreator13([]);
+$asserts = $creator->validate();
+if ($asserts->hasErrors()) {
+    echo 'No se han encontrado errores', PHP_EOL;
+} else {
+    echo print_r($asserts->errors(), true), PHP_EOL;
+}
+```
+
 ## Soporte
 
 Puedes obtener soporte abriendo un ticker en Github.

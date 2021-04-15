@@ -13,8 +13,9 @@
     ],
     "require": {
         "php": ">=7.4",
-        "eclipxe/cfdiutils": "^2.15",
         "ext-openssl": "*",
+        "eclipxe/cfdiutils": "^2.15",
+        "eclipxe/xmlresourceretriever": "^1.3.2",
         "phpcfdi/credentials": "^1.1"
     },
     "require-dev": {

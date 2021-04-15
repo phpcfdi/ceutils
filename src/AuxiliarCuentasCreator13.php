@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PhpCfdi\CeUtils;
 
 use CfdiUtils\Elements\Common\AbstractElement;
+use PhpCfdi\CeUtils\Definitions\AuxiliarCuentas13Definition;
 use PhpCfdi\CeUtils\Elements\AuxiliarCuentas13\AuxiliarCtas;
+use PhpCfdi\CeUtils\Validate\AuxiliarCuentas13\AuxiliarCuentas13MultiValidator;
+use PhpCfdi\CeUtils\Validate\MultiValidator;
 
 class AuxiliarCuentasCreator13 extends AbstractCreator
 {
-    public const AUX_CTAS_XSLT = 'http://www.sat.gob.mx/esquemas/ContabilidadE/'
-    . '1_1/AuxiliarCtas/AuxiliarCtas_1_1.xslt';
-
     private AuxiliarCtas $auxiliarCuentas;
 
     /**
@@ -35,6 +35,11 @@ class AuxiliarCuentasCreator13 extends AbstractCreator
 
     protected function getXsltLocation(): string
     {
-        return self::AUX_CTAS_XSLT;
+        return AuxiliarCuentas13Definition::XSLT_LOCATION;
+    }
+
+    protected function createValidator(): MultiValidator
+    {
+        return new AuxiliarCuentas13MultiValidator();
     }
 }

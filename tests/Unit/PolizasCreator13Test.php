@@ -47,12 +47,12 @@ final class PolizasCreator13Test extends TestCase
 
         $this->assertArrayHasKey('RFC', $attributes);
         $this->assertArrayHasKey('noCertificado', $attributes);
-        $this->assertArrayHasKey('certificado', $attributes);
-        $this->assertArrayHasKey('sello', $attributes);
+        $this->assertArrayHasKey('Certificado', $attributes);
+        $this->assertArrayHasKey('Sello', $attributes);
         $this->assertEquals($fiel->rfc(), $attributes['RFC']);
-        $this->assertEquals($fiel->certificate()->serialNumber()->decimal(), $attributes['noCertificado']);
-        $this->assertEquals($fiel->certificate()->pemAsOneLine(), $attributes['certificado']);
-        $this->assertNotEmpty($attributes['sello']);
+        $this->assertEquals($fiel->certificate()->serialNumber()->bytes(), $attributes['noCertificado']);
+        $this->assertEquals($fiel->certificate()->pemAsOneLine(), $attributes['Certificado']);
+        $this->assertNotEmpty($attributes['Sello']);
     }
 
     public function testConvertBalanzaAsXml(): void
@@ -73,7 +73,7 @@ final class PolizasCreator13Test extends TestCase
         $poliza = $polizas->addPoliza([
             'NumUnIdenPol' => '123456',
             'Fecha' => '2021-03-31',
-            'Concepto' => 'Concepto póliza'
+            'Concepto' => 'Concepto póliza',
         ]);
 
         $transaccion = $poliza->addTransaccion([

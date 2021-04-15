@@ -5,21 +5,22 @@ declare(strict_types=1);
 namespace PhpCfdi\CeUtils\Elements\AuxiliarCuentas13;
 
 use CfdiUtils\Elements\Common\AbstractElement;
+use PhpCfdi\CeUtils\Definitions\AuxiliarCuentas13Definition;
 
 class AuxiliarCtas extends AbstractElement
 {
     public function getElementName(): string
     {
-        return 'AuxiliarCtas:AuxiliarCtas';
+        return AuxiliarCuentas13Definition::ELEMENT_NAME;
     }
 
     public function getFixedAttributes(): array
     {
         return [
-            'xmlns:AuxiliarCtas' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/AuxiliarCtas',
+            'xmlns:AuxiliarCtas' => AuxiliarCuentas13Definition::NAMESPACE,
             'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
-            'xsi:schemaLocation' => 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/AuxiliarCtas'
-                . ' http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/AuxiliarCtas/AuxiliarCtas_1_3.xsd',
+            'xsi:schemaLocation' => AuxiliarCuentas13Definition::NAMESPACE
+                . ' ' . AuxiliarCuentas13Definition::XSD_LOCATION,
             'Version' => '1.3',
         ];
     }
