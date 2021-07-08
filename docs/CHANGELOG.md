@@ -15,6 +15,7 @@ In summary, [SemVer](https://semver.org/) can be viewed as ` Breaking . Feature 
 - Fix XSLT locations to 1.3 specs.
 - Test source string after sign documents.
 - Add exception when empty source string.
+- Use CSD instead of FIEL to sign documents.
 
 Development:
 

@@ -6,11 +6,11 @@ namespace PhpCfdi\CeUtils\Tests\Unit;
 
 use PhpCfdi\CeUtils\AuxiliarFoliosCreator13;
 use PhpCfdi\CeUtils\Tests\TestCase;
-use PhpCfdi\CeUtils\Tests\Traits\WithFakeFiel;
+use PhpCfdi\CeUtils\Tests\Traits\WithFakeCsd;
 
 final class AuxiliarFoliosCreator13Test extends TestCase
 {
-    use WithFakeFiel;
+    use WithFakeCsd;
 
     public function testCreateAuxiliarFoliosCreator13(): void
     {
@@ -34,7 +34,7 @@ final class AuxiliarFoliosCreator13Test extends TestCase
 
     public function testWhenPutSelloAddAttributes(): void
     {
-        $fiel = $this->buildFiel();
+        $credential = $this->buildCredential();
 
         $creator = new AuxiliarFoliosCreator13([
             'Mes' => '01',
@@ -43,7 +43,7 @@ final class AuxiliarFoliosCreator13Test extends TestCase
             'NumTramite' => '123456',
         ]);
 
-        $creator->addSello($fiel);
+        $creator->addSello($credential);
 
         $attributes = $creator->repAuxFol()->attributes()->exportArray();
 
@@ -51,15 +51,15 @@ final class AuxiliarFoliosCreator13Test extends TestCase
         $this->assertArrayHasKey('noCertificado', $attributes);
         $this->assertArrayHasKey('Certificado', $attributes);
         $this->assertArrayHasKey('Sello', $attributes);
-        $this->assertEquals($fiel->rfc(), $attributes['RFC']);
-        $this->assertEquals($fiel->certificate()->serialNumber()->bytes(), $attributes['noCertificado']);
-        $this->assertEquals($fiel->certificate()->pemAsOneLine(), $attributes['Certificado']);
+        $this->assertEquals($credential->rfc(), $attributes['RFC']);
+        $this->assertEquals($credential->certificate()->serialNumber()->bytes(), $attributes['noCertificado']);
+        $this->assertEquals($credential->certificate()->pemAsOneLine(), $attributes['Certificado']);
         $this->assertNotEmpty($attributes['Sello']);
     }
 
     public function testConvertAuxiliarFoliosAsXml(): void
     {
-        $fiel = $this->buildFiel();
+        $credential = $this->buildCredential();
 
         $creator = new AuxiliarFoliosCreator13([
             'Mes' => '01',
@@ -82,7 +82,7 @@ final class AuxiliarFoliosCreator13Test extends TestCase
             'Moneda' => 'MXN',
         ]);
 
-        $creator->addSello($fiel);
+        $creator->addSello($credential);
 
         $expectedSourceString = '||1.3|EKU9003173C9|01|2021|AF|123456|194756|2021-03-25|fake uuid|fake rfc|100|MXN||';
         $this->assertSame($expectedSourceString, $creator->buildCadenaDeOrigen());

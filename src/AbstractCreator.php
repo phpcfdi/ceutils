@@ -36,19 +36,19 @@ abstract class AbstractCreator
         return OPENSSL_ALGO_SHA1;
     }
 
-    public function addSello(Credential $fiel): self
+    public function addSello(Credential $credential): self
     {
         $this->getRootNode()->addAttributes([
-            'RFC' => $fiel->certificate()->rfc(),
-            'noCertificado' => $fiel->certificate()->serialNumber()->bytes(),
-            'Certificado' => $fiel->certificate()->pemAsOneLine(),
+            'RFC' => $credential->certificate()->rfc(),
+            'noCertificado' => $credential->certificate()->serialNumber()->bytes(),
+            'Certificado' => $credential->certificate()->pemAsOneLine(),
         ]);
 
         $cadenaDeOrigen = $this->buildCadenaDeOrigen();
 
         $this->getRootNode()->addAttributes([
             'Sello' => base64_encode(
-                $fiel->privateKey()->sign($cadenaDeOrigen, $this->getSelloAlgorithm())
+                $credential->privateKey()->sign($cadenaDeOrigen, $this->getSelloAlgorithm())
             ),
         ]);
 
