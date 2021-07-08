@@ -16,6 +16,10 @@ In summary, [SemVer](https://semver.org/) can be viewed as ` Breaking . Feature 
 - Test source string after sign documents.
 - Add exception when empty source string.
 
+Development:
+
+- Change `php-cs-fixer` to version 3.
+
 ## Version 0.1.0 2020-01-01
 
 - Initial working release for testing with friends
