@@ -6,17 +6,17 @@ namespace PhpCfdi\CeUtils\Tests\Unit\Validate\Balanza13;
 
 use PhpCfdi\CeUtils\BalanzaCreator13;
 use PhpCfdi\CeUtils\Tests\TestCase;
-use PhpCfdi\CeUtils\Tests\Traits\WithFakeFiel;
+use PhpCfdi\CeUtils\Tests\Traits\WithFakeCsd;
 
 final class ValidateTest extends TestCase
 {
-    use WithFakeFiel;
+    use WithFakeCsd;
 
     public function testValidateMinimalCreatedDocument(): void
     {
-        $fiel = $this->buildFiel();
+        $credential = $this->buildCredential();
         $creator = new BalanzaCreator13([
-            'RFC' => $fiel->certificate()->rfc(),
+            'RFC' => $credential->certificate()->rfc(),
             'Mes' => '01',
             'Anio' => '2021',
             'TipoEnvio' => 'N',
@@ -28,7 +28,7 @@ final class ValidateTest extends TestCase
             'Haber' => '0',
             'SaldoFin' => '0',
         ]);
-        $creator->addSello($fiel);
+        $creator->addSello($credential);
         $asserts = $creator->validate();
         $this->assertEmpty($asserts->nones());
         $this->assertFalse($asserts->hasErrors());

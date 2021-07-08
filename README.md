@@ -41,13 +41,13 @@ $creator = new BalanzaCreator13([
     'FechaModBal' => '2015-01-01',
 ]);
 
-$fiel = Credential::openFiles(
-    $this->filePath('fake-fiel/EKU9003173C9.cer'),
-    $this->filePath('fake-fiel/EKU9003173C9.key'),
-    trim($this->fileContents('fake-fiel/EKU9003173C9-password.txt'))
+$credential = Credential::openFiles(
+    $this->filePath('fake-csd/EKU9003173C9.cer'),
+    $this->filePath('fake-csd/EKU9003173C9.key'),
+    trim($this->fileContents('fake-csd/EKU9003173C9-password.txt'))
 );
 
-$creator->addSello($fiel);
+$creator->addSello($credential);
 
 $balanza = $creator->balanza();
 
@@ -85,9 +85,9 @@ $creator = new CatalogoCreator13([
     'FechaModBal' => '2015-01-01',
 ]);
 
-/** @var Credential $fiel */
+/** @var Credential $credential */
 
-$creator->addSello($fiel);
+$creator->addSello($credential);
 
 $catalogo = $creator->catalogo();
 
@@ -127,9 +127,9 @@ $creator = new AuxiliarFoliosCreator13([
     'NumTramite' => '123456',
 ]);
 
-/** @var Credential $fiel */
+/** @var Credential $credential */
 
-$creator->addSello($fiel);
+$creator->addSello($credential);
 
 $reporteAuxiliarFolios = $creator->repAuxFol();
 
@@ -164,9 +164,9 @@ $creator = new AuxiliarCuentasCreator13([
     'NumTramite' => '123456',
 ]);
 
-/** @var Credential $fiel */
+/** @var Credential $crcedential */
 
-$creator->addSello($fiel);
+$creator->addSello($crcedential);
 
 $auxiliarCuentas = $creator->auxiliarCuentas();
 
@@ -203,9 +203,9 @@ $creator = new PolizasCreator13([
     'NumTramite' => '123456',
 ]);
 
-/** @var Credential $fiel */
+/** @var Credential $credential */
 
-$creator->addSello($fiel);
+$creator->addSello($credential);
 
 $polizas = $creator->polizas();
 

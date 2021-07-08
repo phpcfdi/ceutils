@@ -6,11 +6,11 @@ namespace PhpCfdi\CeUtils\Tests\Unit;
 
 use PhpCfdi\CeUtils\PolizasCreator13;
 use PhpCfdi\CeUtils\Tests\TestCase;
-use PhpCfdi\CeUtils\Tests\Traits\WithFakeFiel;
+use PhpCfdi\CeUtils\Tests\Traits\WithFakeCsd;
 
 final class PolizasCreator13Test extends TestCase
 {
-    use WithFakeFiel;
+    use WithFakeCsd;
 
     public function testCreateBalanzaCreator13(): void
     {
@@ -32,7 +32,7 @@ final class PolizasCreator13Test extends TestCase
 
     public function testWhenPutSelloAddAttributes(): void
     {
-        $fiel = $this->buildFiel();
+        $credential = $this->buildCredential();
 
         $creator = new PolizasCreator13([
             'Mes' => '01',
@@ -41,7 +41,7 @@ final class PolizasCreator13Test extends TestCase
             'NumTramite' => '123456',
         ]);
 
-        $creator->addSello($fiel);
+        $creator->addSello($credential);
 
         $attributes = $creator->polizas()->attributes()->exportArray();
 
@@ -49,15 +49,15 @@ final class PolizasCreator13Test extends TestCase
         $this->assertArrayHasKey('noCertificado', $attributes);
         $this->assertArrayHasKey('Certificado', $attributes);
         $this->assertArrayHasKey('Sello', $attributes);
-        $this->assertEquals($fiel->rfc(), $attributes['RFC']);
-        $this->assertEquals($fiel->certificate()->serialNumber()->bytes(), $attributes['noCertificado']);
-        $this->assertEquals($fiel->certificate()->pemAsOneLine(), $attributes['Certificado']);
+        $this->assertEquals($credential->rfc(), $attributes['RFC']);
+        $this->assertEquals($credential->certificate()->serialNumber()->bytes(), $attributes['noCertificado']);
+        $this->assertEquals($credential->certificate()->pemAsOneLine(), $attributes['Certificado']);
         $this->assertNotEmpty($attributes['Sello']);
     }
 
     public function testConvertBalanzaAsXml(): void
     {
-        $fiel = $this->buildFiel();
+        $credential = $this->buildCredential();
 
         $creator = new PolizasCreator13([
             'Mes' => '01',
@@ -65,8 +65,6 @@ final class PolizasCreator13Test extends TestCase
             'TipoSolicitud' => 'AF',
             'NumTramite' => '123456',
         ]);
-
-        $creator->addSello($fiel);
 
         $polizas = $creator->polizas();
 
@@ -90,6 +88,12 @@ final class PolizasCreator13Test extends TestCase
             'MontoTotal' => '100.00',
             'Moneda' => 'MXN',
         ]);
+
+        $creator->addSello($credential);
+
+        $expectedSourceString = '||1.3|EKU9003173C9|01|2021|AF|123456|123456|2021-03-31|Concepto póliza|123'
+            . '|Concepto transacción|100.00|0.00|adf9d1d2-574d-4781-8874-a9fb1e79930a||';
+        $this->assertSame($expectedSourceString, $creator->buildCadenaDeOrigen());
 
         $expectedFile = __DIR__ . '/../_files/polizas-sample.xml';
         $this->assertXmlStringEqualsXmlFile($expectedFile, $creator->asXml());

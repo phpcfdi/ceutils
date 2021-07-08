@@ -10,7 +10,7 @@ interface AuxiliarCuentas13Definition
 
     public const XSD_LOCATION = 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/AuxiliarCtas/AuxiliarCtas_1_3.xsd';
 
-    public const XSLT_LOCATION = 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_1/AuxiliarCtas/AuxiliarCtas_1_1.xslt';
+    public const XSLT_LOCATION = 'https://www.sat.gob.mx/esquemas/ContabilidadE/1_3/AuxiliarCtas/AuxiliarCtas_1_2.xslt';
 
     public const ELEMENT_NAME = 'AuxiliarCtas:AuxiliarCtas';
 }

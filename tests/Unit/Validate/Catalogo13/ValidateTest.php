@@ -6,17 +6,17 @@ namespace PhpCfdi\CeUtils\Tests\Unit\Validate\Catalogo13;
 
 use PhpCfdi\CeUtils\CatalogoCreator13;
 use PhpCfdi\CeUtils\Tests\TestCase;
-use PhpCfdi\CeUtils\Tests\Traits\WithFakeFiel;
+use PhpCfdi\CeUtils\Tests\Traits\WithFakeCsd;
 
 final class ValidateTest extends TestCase
 {
-    use WithFakeFiel;
+    use WithFakeCsd;
 
     public function testValidateMinimalCreatedDocument(): void
     {
-        $fiel = $this->buildFiel();
+        $credential = $this->buildCredential();
         $creator = new CatalogoCreator13([
-            'RFC' => $fiel->certificate()->rfc(),
+            'RFC' => $credential->certificate()->rfc(),
             'Mes' => '01',
             'Anio' => '2021',
         ]);
@@ -29,7 +29,7 @@ final class ValidateTest extends TestCase
             'Natur' => 'A',
         ]);
 
-        $creator->addSello($fiel);
+        $creator->addSello($credential);
         $asserts = $creator->validate();
         $this->assertEmpty($asserts->nones());
         $this->assertFalse($asserts->hasErrors());

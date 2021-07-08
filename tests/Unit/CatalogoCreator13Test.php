@@ -6,11 +6,11 @@ namespace PhpCfdi\CeUtils\Tests\Unit;
 
 use PhpCfdi\CeUtils\CatalogoCreator13;
 use PhpCfdi\CeUtils\Tests\TestCase;
-use PhpCfdi\CeUtils\Tests\Traits\WithFakeFiel;
+use PhpCfdi\CeUtils\Tests\Traits\WithFakeCsd;
 
 final class CatalogoCreator13Test extends TestCase
 {
-    use WithFakeFiel;
+    use WithFakeCsd;
 
     public function testCreateCatalogoCreator13(): void
     {
@@ -32,7 +32,7 @@ final class CatalogoCreator13Test extends TestCase
 
     public function testWhenPutSelloAddAttributes(): void
     {
-        $fiel = $this->buildFiel();
+        $credential = $this->buildCredential();
 
         $creator = new CatalogoCreator13([
             'Mes' => '01',
@@ -41,7 +41,7 @@ final class CatalogoCreator13Test extends TestCase
             'FechaModBal' => '2015-01-01',
         ]);
 
-        $creator->addSello($fiel);
+        $creator->addSello($credential);
 
         $attributes = $creator->catalogo()->attributes()->exportArray();
 
@@ -49,15 +49,15 @@ final class CatalogoCreator13Test extends TestCase
         $this->assertArrayHasKey('noCertificado', $attributes);
         $this->assertArrayHasKey('Certificado', $attributes);
         $this->assertArrayHasKey('Sello', $attributes);
-        $this->assertEquals($fiel->rfc(), $attributes['RFC']);
-        $this->assertEquals($fiel->certificate()->serialNumber()->bytes(), $attributes['noCertificado']);
-        $this->assertEquals($fiel->certificate()->pemAsOneLine(), $attributes['Certificado']);
+        $this->assertEquals($credential->rfc(), $attributes['RFC']);
+        $this->assertEquals($credential->certificate()->serialNumber()->bytes(), $attributes['noCertificado']);
+        $this->assertEquals($credential->certificate()->pemAsOneLine(), $attributes['Certificado']);
         $this->assertNotEmpty($attributes['Sello']);
     }
 
     public function testConvertCatalogoAsXml(): void
     {
-        $fiel = $this->buildFiel();
+        $credential = $this->buildCredential();
 
         $creator = new CatalogoCreator13([
             'Mes' => '01',
@@ -66,7 +66,10 @@ final class CatalogoCreator13Test extends TestCase
             'FechaModBal' => '2015-01-01',
         ]);
 
-        $creator->addSello($fiel);
+        $creator->addSello($credential);
+
+        $expectedSourceString = '||1.3|EKU9003173C9|01|2021||';
+        $this->assertSame($expectedSourceString, $creator->buildCadenaDeOrigen());
 
         $expectedFile = __DIR__ . '/../_files/catalogo-sample-without-ctas.xml';
         $this->assertXmlStringEqualsXmlFile($expectedFile, $creator->asXml());

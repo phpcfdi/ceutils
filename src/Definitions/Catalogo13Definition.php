@@ -8,11 +8,11 @@ interface Catalogo13Definition
 {
     public const NAMESPACE = 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas';
 
-    public const XSD_LOCATION = 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas'
-        . '/CatalogoCuentas_1_3.xsd';
+    public const XSD_LOCATION = 'http://www.sat.gob.mx/esquemas/ContabilidadE'
+        . '/1_3/CatalogoCuentas/CatalogoCuentas_1_3.xsd';
 
-    public const XSLT_LOCATION = 'http://www.sat.gob.mx/esquemas/ContabilidadE/1_1/CatalogoCuentas'
-        . '/CatalogoCuentas_1_1.xslt';
+    public const XSLT_LOCATION = 'http://www.sat.gob.mx/esquemas/ContabilidadE'
+        . '/1_3/CatalogoCuentas/CatalogoCuentas_1_2.xslt';
 
     public const ELEMENT_NAME = 'catalogocuentas:Catalogo';
 }
