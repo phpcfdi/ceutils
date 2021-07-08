@@ -68,8 +68,6 @@ final class AuxiliarFoliosCreator13Test extends TestCase
             'NumTramite' => '123456',
         ]);
 
-        $creator->addSello($fiel);
-
         $reporteAuxiliarFolios = $creator->repAuxFol();
 
         $detalleAuxiliarFolios = $reporteAuxiliarFolios->addDetalleAux([
@@ -81,9 +79,13 @@ final class AuxiliarFoliosCreator13Test extends TestCase
             'UUID_CFDI' => 'fake uuid',
             'MontoTotal' => '100',
             'RFC' => 'fake rfc',
-            'MetPagoAux' => '',
             'Moneda' => 'MXN',
         ]);
+
+        $creator->addSello($fiel);
+
+        $expectedSourceString = '||1.3|EKU9003173C9|01|2021|AF|123456|194756|2021-03-25|fake uuid|fake rfc|100|MXN||';
+        $this->assertSame($expectedSourceString, $creator->buildCadenaDeOrigen());
 
         $expectedFile = __DIR__ . '/../_files/auxiliar-folios-sample.xml';
         $this->assertXmlStringEqualsXmlFile($expectedFile, $creator->asXml());

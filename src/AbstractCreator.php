@@ -58,7 +58,11 @@ abstract class AbstractCreator
     public function buildCadenaDeOrigen(): string
     {
         $location = $this->getXmlResolver()->resolve($this->getXsltLocation(), 'XSLT');
-        return $this->getXsltBuilder()->build($this->asXml(), $location);
+        $sourceString = $this->getXsltBuilder()->build($this->asXml(), $location);
+        if ('' === trim($sourceString, '|')) {
+            throw new \RuntimeException('Unable to create the source string');
+        }
+        return $sourceString;
     }
 
     public function asXml(): string

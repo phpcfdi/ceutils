@@ -66,8 +66,6 @@ final class PolizasCreator13Test extends TestCase
             'NumTramite' => '123456',
         ]);
 
-        $creator->addSello($fiel);
-
         $polizas = $creator->polizas();
 
         $poliza = $polizas->addPoliza([
@@ -90,6 +88,12 @@ final class PolizasCreator13Test extends TestCase
             'MontoTotal' => '100.00',
             'Moneda' => 'MXN',
         ]);
+
+        $creator->addSello($fiel);
+
+        $expectedSourceString = '||1.3|EKU9003173C9|01|2021|AF|123456|123456|2021-03-31|Concepto póliza|123'
+            . '|Concepto transacción|100.00|0.00|adf9d1d2-574d-4781-8874-a9fb1e79930a||';
+        $this->assertSame($expectedSourceString, $creator->buildCadenaDeOrigen());
 
         $expectedFile = __DIR__ . '/../_files/polizas-sample.xml';
         $this->assertXmlStringEqualsXmlFile($expectedFile, $creator->asXml());

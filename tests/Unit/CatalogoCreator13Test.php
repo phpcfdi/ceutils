@@ -68,6 +68,9 @@ final class CatalogoCreator13Test extends TestCase
 
         $creator->addSello($fiel);
 
+        $expectedSourceString = '||1.3|EKU9003173C9|01|2021||';
+        $this->assertSame($expectedSourceString, $creator->buildCadenaDeOrigen());
+
         $expectedFile = __DIR__ . '/../_files/catalogo-sample-without-ctas.xml';
         $this->assertXmlStringEqualsXmlFile($expectedFile, $creator->asXml());
     }

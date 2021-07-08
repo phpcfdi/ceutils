@@ -68,8 +68,6 @@ final class AuxiliarCuentasCreator13Test extends TestCase
             'NumTramite' => '123456',
         ]);
 
-        $creator->addSello($fiel);
-
         $auxiliarCuentas = $creator->auxiliarCuentas();
 
         $cuenta = $auxiliarCuentas->addCuenta([
@@ -95,6 +93,12 @@ final class AuxiliarCuentasCreator13Test extends TestCase
                 'Haber' => '0',
             ]
         );
+
+        $creator->addSello($fiel);
+
+        $expectedSourceString = '||1.3|EKU9003173C9|01|2021|AF|123456|602.01.01|descripción|100.00|100.00'
+            . '|2021-03-25|123456|50|0|2021-03-25|123456|50|0||';
+        $this->assertSame($expectedSourceString, $creator->buildCadenaDeOrigen());
 
         $expectedFile = __DIR__ . '/../_files/auxiliar-cuentas-sample.xml';
         $this->assertXmlStringEqualsXmlFile($expectedFile, $creator->asXml());

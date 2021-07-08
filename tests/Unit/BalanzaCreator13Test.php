@@ -68,6 +68,9 @@ final class BalanzaCreator13Test extends TestCase
 
         $creator->addSello($fiel);
 
+        $expectedSourceString = '||1.3|EKU9003173C9|01|2021|N|2015-01-01||';
+        $this->assertSame($expectedSourceString, $creator->buildCadenaDeOrigen());
+
         $expectedFile = __DIR__ . '/../_files/balanza-sample-without-ctas.xml';
         $this->assertXmlStringEqualsXmlFile($expectedFile, $creator->asXml());
     }
