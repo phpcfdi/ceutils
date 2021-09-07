@@ -1,0 +1,123 @@
+# Validaciones
+
+## Catalogos
+
+### Elemento `Catalogo`
+
+- [X] `RFC`: Debería coincidir con el certificado.
+- [X] `Sello`: Firma.
+- [X] `noCertificado`: Coincida con el atributo `Certificado`.
+- [X] `Certificado`: Sea un certificado en formato PEM de una sola línea.
+
+## Balanza de comprobación
+
+### Elemento `Balanza`
+
+- [X] `RFC`: Debería coincidir con el certificado.
+- [X] `Sello`: Firma.
+- [X] `noCertificado`: Coincida con el atributo `Certificado`.
+- [X] `Certificado`: Sea un certificado en formato PEM de una sola línea.
+- [ ] `FechaModBal`: requerido cuando `TipoEnvio = C`
+
+### Elemento `Balanza/Ctas`
+
+- [ ] `SaldoFin`: De acuerdo a la naturaleza de la cuenta o subcuenta, deberá de corresponder el saldo final,
+  de lo contrario se entenderá que es un saldo final de naturaleza inversa.
+
+## Pólizas del periodo
+
+### Elemento `Polizas`
+
+- [X] `RFC`: Debería coincidir con el certificado.
+- [X] `Sello`: Firma.
+- [X] `noCertificado`: Coincida con el atributo `Certificado`.
+- [X] `Certificado`: Sea un certificado en formato PEM de una sola línea.
+- [ ] `NumOrden`: Requerido para `TipoSolicitud = AF|FC`.
+- [ ] `NumTramite`: Requerido para `TipoSolicitud = DE|CO`.
+
+### Elemento `Polizas/Poliza`
+
+- [ ] `NumUnIdenPol`: En un mes ordinario no debe repetirse un mismo número de póliza.
+
+### Elemento `Polizas/Poliza/Transaccion/CompNal`
+
+- [ ] `RFC`: Debe ser un RFC válido, distinto del contribuyente que envía los datos.
+- [ ] `Moneda`: Diferente de moneda nacional.
+- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+
+### Elemento `Polizas/Poliza/Transaccion/CompNalOtr`
+
+- [ ] `RFC`: Debe ser un RFC válido, distinto del contribuyente que envía los datos.
+- [ ] `Moneda`: Diferente de moneda nacional.
+- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+
+### Elemento `Polizas/Poliza/Transaccion/CompExt`
+
+- [ ] `Moneda`: Diferente de moneda nacional.
+- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+
+### Elemento `Polizas/Poliza/Transaccion/Cheque`
+
+- [ ] `RFC`: Debe ser un RFC válido, distinto del contribuyente que envía los datos.
+- [ ] `Moneda`: Diferente de moneda nacional.
+- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+
+### Elemento `Polizas/Poliza/Transaccion/Transferencia`
+
+- [ ] `RFC`: Debe ser un RFC válido, distinto del contribuyente que envía los datos.
+- [ ] `Moneda`: Diferente de moneda nacional.
+- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+
+
+### Elemento `Polizas/Poliza/Transaccion/OtrMetodoPago`
+
+- [ ] `RFC`: Debe ser un RFC válido, distinto del contribuyente que envía los datos.
+- [ ] `Moneda`: Diferente de moneda nacional.
+- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+
+## Reporte de auxiliar de folios de comprobantes fiscales
+
+### Elemento `RepAuxFol`
+
+- [X] `RFC`: Debería coincidir con el certificado.
+- [X] `Sello`: Firma.
+- [X] `noCertificado`: Coincida con el atributo `Certificado`.
+- [X] `Certificado`: Sea un certificado en formato PEM de una sola línea.
+- [ ] `NumOrden`: Requerido para `TipoSolicitud = AF|FC`.
+- [ ] `NumTramite`: Requerido para `TipoSolicitud = DE|CO`.
+
+### Elemento `RepAuxFol/DetAuxFol`
+
+- [ ] `NumUnIdenPol`: En un mes ordinario no debe repetirse un mismo número de póliza.
+
+### Elemento `RepAuxFol/DetAuxFol/ComprNal`
+
+- [ ] `RFC`: Debe ser un RFC válido, distinto del contribuyente que envía los datos.
+- [ ] `Moneda`: Diferente de moneda nacional.
+- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+
+### Elemento `RepAuxFol/DetAuxFol/ComprNalOtr`
+
+- [ ] `RFC`: Debe ser un RFC válido, distinto del contribuyente que envía los datos.
+- [ ] `Moneda`: Diferente de moneda nacional.
+- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+
+### Elemento `RepAuxFol/DetAuxFol/ComprExt`
+
+- [ ] `Moneda`: Diferente de moneda nacional.
+- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+
+## Reporte de Auxiliares de cuenta
+
+### Elemento `AuxiliarCtas`
+
+- [X] `RFC`: Debería coincidir con el certificado.
+- [X] `Sello`: Firma.
+- [X] `noCertificado`: Coincida con el atributo `Certificado`.
+- [X] `Certificado`: Sea un certificado en formato PEM de una sola línea.
+- [ ] `NumOrden`: Requerido para `TipoSolicitud = AF|FC`.
+- [ ] `NumTramite`: Requerido para `TipoSolicitud = DE|CO`.
+
+### Elemento `AuxiliarCtas/Cuenta/DetalleAux`
+
+- [ ] `NumUnIdenPol`: En un mes ordinario no debe repetirse un mismo número de póliza.
