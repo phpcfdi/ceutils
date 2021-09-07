@@ -13,6 +13,7 @@
     ],
     "require": {
         "php": ">=7.4",
+        "ext-bcmath": "*",
         "ext-openssl": "*",
         "eclipxe/cfdiutils": "^2.15",
         "eclipxe/xmlresourceretriever": "^1.3.2",

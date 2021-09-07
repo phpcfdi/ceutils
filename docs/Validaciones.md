@@ -21,8 +21,7 @@
 
 ### Elemento `Balanza/Ctas`
 
-- [ ] `SaldoFin`: De acuerdo a la naturaleza de la cuenta o subcuenta, deberá de corresponder el saldo final,
-  de lo contrario se entenderá que es un saldo final de naturaleza inversa.
+- [X] `SaldoFin`: Debe corresponder al valor del saldo inicial más el valor de deber menos el valor de haber.
 
 ## Pólizas del periodo
 
