@@ -82,7 +82,7 @@
 - [X] `Sello`: Firma.
 - [X] `noCertificado`: Coincida con el atributo `Certificado`.
 - [X] `Certificado`: Sea un certificado en formato PEM de una sola línea.
-- [ ] `NumOrden`: Requerido para `TipoSolicitud = AF|FC`.
+- [X] `NumOrden`: Requerido para `TipoSolicitud = AF|FC`.
 - [ ] `NumTramite`: Requerido para `TipoSolicitud = DE|CO`.
 
 ### Elemento `RepAuxFol/DetAuxFol`
@@ -114,7 +114,7 @@
 - [X] `Sello`: Firma.
 - [X] `noCertificado`: Coincida con el atributo `Certificado`.
 - [X] `Certificado`: Sea un certificado en formato PEM de una sola línea.
-- [ ] `NumOrden`: Requerido para `TipoSolicitud = AF|FC`.
+- [X] `NumOrden`: Requerido para `TipoSolicitud = AF|FC`.
 - [ ] `NumTramite`: Requerido para `TipoSolicitud = DE|CO`.
 
 ### Elemento `AuxiliarCtas/Cuenta/DetalleAux`
