@@ -17,7 +17,7 @@
 - [X] `Sello`: Firma.
 - [X] `noCertificado`: Coincida con el atributo `Certificado`.
 - [X] `Certificado`: Sea un certificado en formato PEM de una sola línea.
-- [ ] `FechaModBal`: requerido cuando `TipoEnvio = C`
+- [X] `FechaModBal`: requerido cuando `TipoEnvio = C`
 
 ### Elemento `Balanza/Ctas`
 
