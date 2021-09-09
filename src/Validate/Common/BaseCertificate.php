@@ -13,6 +13,7 @@ use CfdiUtils\Validate\Contracts\RequireXsltBuilderInterface;
 use CfdiUtils\Validate\Status;
 use CfdiUtils\Validate\Traits\XmlStringPropertyTrait;
 use CfdiUtils\XmlResolver\XmlResolverPropertyTrait;
+use PhpCfdi\CeUtils\Internal\AssertPrefixPropertyTrait;
 use PhpCfdi\CeUtils\Validate\ValidatorInterface;
 use PhpCfdi\Credentials\Certificate;
 use UnexpectedValueException;
@@ -23,13 +24,7 @@ abstract class BaseCertificate implements
     RequireXmlResolverInterface,
     RequireXsltBuilderInterface
 {
-    use XmlStringPropertyTrait;
-
-    use XmlResolverPropertyTrait;
-
-    use XsltBuilderPropertyTrait;
-
-    private string $assertPrefix;
+    use AssertPrefixPropertyTrait, XmlStringPropertyTrait, XmlResolverPropertyTrait, XsltBuilderPropertyTrait;
 
     private string $xsltLocation;
 
@@ -37,11 +32,6 @@ abstract class BaseCertificate implements
     {
         $this->assertPrefix = $assertPrefix;
         $this->xsltLocation = $xsltLocation;
-    }
-
-    public function getAssertCode(string $suffix): string
-    {
-        return $this->assertPrefix . $suffix;
     }
 
     public function getXsltLocation(): string

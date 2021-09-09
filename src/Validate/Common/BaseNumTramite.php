@@ -7,20 +7,16 @@ namespace PhpCfdi\CeUtils\Validate\Common;
 use CfdiUtils\Nodes\NodeInterface;
 use CfdiUtils\Validate\Asserts;
 use CfdiUtils\Validate\Status;
+use PhpCfdi\CeUtils\Internal\AssertPrefixPropertyTrait;
 use PhpCfdi\CeUtils\Validate\ValidatorInterface;
 
 abstract class BaseNumTramite implements ValidatorInterface
 {
-    private string $assertPrefix;
+    use AssertPrefixPropertyTrait;
 
     public function __construct(string $assertPrefix)
     {
         $this->assertPrefix = $assertPrefix;
-    }
-
-    public function getAssertCode(string $suffix): string
-    {
-        return $this->assertPrefix . $suffix;
     }
 
     public function validate(NodeInterface $root, Asserts $asserts): void
