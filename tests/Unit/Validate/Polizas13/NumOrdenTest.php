@@ -4,82 +4,16 @@ declare(strict_types=1);
 
 namespace PhpCfdi\CeUtils\Tests\Unit\Validate\Polizas13;
 
-use CfdiUtils\Validate\Asserts;
-use PhpCfdi\CeUtils\PolizasCreator13;
 use PhpCfdi\CeUtils\Tests\TestCase;
+use PhpCfdi\CeUtils\Validate\Common\BaseNumOrden;
 use PhpCfdi\CeUtils\Validate\Polizas13\Base\NumOrden;
 
 final class NumOrdenTest extends TestCase
 {
-    public function providerTipoSolicitudApplyWithNumOrden(): array
+    public function testDefinition(): void
     {
-        return [
-            'TipoSolicitud[AF]' => ['AF'],
-            'TipoSolicitud[FC]' => ['FC'],
-        ];
-    }
-
-    /** @dataProvider providerTipoSolicitudApplyWithNumOrden */
-    public function testTipoSolicitudApplyWithNumOrden(string $tipoSolicitud): void
-    {
-        $polizas = (new PolizasCreator13([
-            'TipoSolicitud' => $tipoSolicitud,
-            'NumOrden' => 'XXX1234567/89',
-        ]))->polizas();
-
-        $asserts = new Asserts();
         $validator = NumOrden::create();
-        $validator->validate($polizas, $asserts);
-
-        $this->assertTrue($asserts->get('PLZ13NOR01')->getStatus()->isOk());
-    }
-
-    public function providerTipoSolicitudApplyWithEmptyNumOrden(): array
-    {
-        return [
-            'TipoSolicitud[AF]' => ['AF'],
-            'TipoSolicitud[FC]' => ['FC'],
-        ];
-    }
-
-    /** @dataProvider providerTipoSolicitudApplyWithNumOrden */
-    public function testTipoSolicitudApplyWithEmptyNumOrden(string $tipoSolicitud): void
-    {
-        $polizas = (new PolizasCreator13([
-            'TipoSolicitud' => $tipoSolicitud,
-            'NumOrden' => '',
-        ]))->polizas();
-
-        $asserts = new Asserts();
-        $validator = NumOrden::create();
-        $validator->validate($polizas, $asserts);
-
-        $this->assertTrue($asserts->get('PLZ13NOR01')->getStatus()->isError());
-    }
-
-    public function providerTipoSolicitudNotApply(): array
-    {
-        return [
-            'TipoSolicitud[empty] NumOrden[empty]' => ['', ''],
-            'TipoSolicitud[DE] NumOrden[empty]' => ['DE', ''],
-            'TipoSolicitud[DE] NumOrden[value]' => ['DE', 'XXX1234567/89'],
-            'TipoSolicitud[CO] NumOrden[empty]' => ['DE', ''],
-            'TipoSolicitud[CO] NumOrden[value]' => ['CO', 'XXX1234567/89'],
-        ];
-    }
-
-    /** @dataProvider providerTipoSolicitudNotApply */
-    public function testTipoSolicitudNotApply(string $tipoSolicitud, string $numOrden): void
-    {
-        $polizas = (new PolizasCreator13([
-            'TipoSolicitud' => $tipoSolicitud,
-            'NumOrden' => $numOrden,
-        ]))->polizas();
-
-        $asserts = new Asserts();
-        $validator = NumOrden::create();
-        $validator->validate($polizas, $asserts);
-
-        $this->assertTrue($asserts->get('PLZ13NOR01')->getStatus()->isNone());
+        $this->assertInstanceOf(BaseNumOrden::class, $validator);
+        $this->assertSame('PLZ13X', $validator->getAssertCode('X'));
     }
 }

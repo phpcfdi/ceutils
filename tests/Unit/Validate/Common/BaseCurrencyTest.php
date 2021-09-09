@@ -21,7 +21,7 @@ final class BaseCurrencyTest extends TestCase
         $this->validator = new class('FOO_', ...['a:foo', 'a:bar']) extends BaseCurrency {
             public static function create(): self
             {
-                throw new LogicException('Static method wont be tested');
+                throw new LogicException("Static method won't be tested");
             }
         };
     }
