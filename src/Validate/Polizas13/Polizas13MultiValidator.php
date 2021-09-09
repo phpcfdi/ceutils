@@ -17,5 +17,6 @@ class Polizas13MultiValidator extends MultiValidator
         Base\CurrencyTransaccionCompNal::class,
         Base\ExchangeRateTransaccionCompNal::class,
         Base\CurrencyTransaccionCompNalOtr::class,
+        Base\ExchangeRateTransaccionCompNalOtr::class,
     ];
 }
