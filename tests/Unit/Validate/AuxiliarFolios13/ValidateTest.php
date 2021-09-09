@@ -20,10 +20,10 @@ final class ValidateTest extends TestCase
             'Mes' => '01',
             'Anio' => '2021',
             'TipoSolicitud' => 'AF',
+            'NumOrden' => 'XXX1234567/89',
         ]);
         $creator->addSello($credential);
         $asserts = $creator->validate();
-        $this->assertEmpty($asserts->nones());
         $this->assertFalse($asserts->hasErrors());
         $this->assertFalse($asserts->hasWarnings());
     }
