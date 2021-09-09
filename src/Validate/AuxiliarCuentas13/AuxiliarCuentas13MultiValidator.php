@@ -12,5 +12,7 @@ class AuxiliarCuentas13MultiValidator extends MultiValidator
         Base\DocumentDefinition::class,
         Base\DocumentFollowSchemas::class,
         Base\Certificate::class,
+        Base\NumOrden::class,
+        Base\NumTramite::class,
     ];
 }
