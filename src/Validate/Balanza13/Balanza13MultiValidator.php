@@ -12,5 +12,7 @@ class Balanza13MultiValidator extends MultiValidator
         Base\DocumentDefinition::class,
         Base\DocumentFollowSchemas::class,
         Base\Certificate::class,
+        FechaModificacionBalanza::class,
+        CuentasSaldoFinal::class,
     ];
 }

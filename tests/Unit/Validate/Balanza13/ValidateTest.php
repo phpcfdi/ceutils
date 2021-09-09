@@ -30,7 +30,6 @@ final class ValidateTest extends TestCase
         ]);
         $creator->addSello($credential);
         $asserts = $creator->validate();
-        $this->assertEmpty($asserts->nones());
         $this->assertFalse($asserts->hasErrors());
         $this->assertFalse($asserts->hasWarnings());
     }

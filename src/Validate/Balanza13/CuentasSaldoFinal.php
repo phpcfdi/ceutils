@@ -10,6 +10,12 @@ use CfdiUtils\Validate\Status;
 use PhpCfdi\CeUtils\Internal\Amount;
 use PhpCfdi\CeUtils\Validate\ValidatorInterface;
 
+/**
+ * Valida la relación entre el saldo inicial, debe, haber y saldo final en una cuenta
+ *
+ * BAL13SF01 - Para cada cuenta, el saldo final debe ser el saldo inicial más el debe menos el deber
+ * BAL13SF01-nnn - El saldo final debe ser el saldo inicial más el debe menos el deber
+ */
 final class CuentasSaldoFinal implements ValidatorInterface
 {
     public static function create(): self
@@ -49,7 +55,7 @@ final class CuentasSaldoFinal implements ValidatorInterface
 
         $asserts->put(
             sprintf('BAL13SF01-%03d', $index),
-            sprintf('Cuenta #%d', $index),
+            'El saldo final debe ser el saldo inicial más el debe menos el deber',
             Status::when($equals),
             sprintf(
                 'Saldo inicial: %s, Debe: %s, Haber: %s, Saldo final: %s, Esperado: %s',
