@@ -119,3 +119,5 @@
 ### Elemento `AuxiliarCtas/Cuenta/DetalleAux`
 
 - [ ] `NumUnIdenPol`: En un mes ordinario no debe repetirse un mismo número de póliza.
+      Esta validación debe tener un problema en su especificación dado que dos cuentas podrían
+      hacer referencia a un mismo número de póliza. Confirmar con un contador.
