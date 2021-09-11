@@ -20,6 +20,8 @@ final class AuxiliarFolios13MultiValidatorTest extends TestCase
             Base\Certificate::class,
             Base\NumOrden::class,
             Base\NumTramite::class,
+            Base\CurrencyDetAuxFolComprNal::class,
+            Base\ExchangeRateDetAuxFolComprNal::class,
         ];
         $this->assertSame($expected, $validators);
     }
