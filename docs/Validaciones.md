@@ -58,8 +58,8 @@
 ### Elemento `Polizas/Poliza/Transaccion/Cheque`
 
 - [ ] `RFC`: Debe ser un RFC válido, distinto del contribuyente que envía los datos.
-- [ ] `Moneda`: Diferente de moneda nacional.
-- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+- [X] `Moneda`: Diferente de moneda nacional.
+- [X] `TipCamb`: Requerido cuando la moneda esté definida.
 
 ### Elemento `Polizas/Poliza/Transaccion/Transferencia`
 
