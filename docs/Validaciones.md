@@ -52,8 +52,8 @@
 
 ### Elemento `Polizas/Poliza/Transaccion/CompExt`
 
-- [ ] `Moneda`: Diferente de moneda nacional.
-- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+- [X] `Moneda`: Diferente de moneda nacional.
+- [X] `TipCamb`: Requerido cuando la moneda esté definida.
 
 ### Elemento `Polizas/Poliza/Transaccion/Cheque`
 
