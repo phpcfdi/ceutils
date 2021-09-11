@@ -23,6 +23,7 @@ final class AuxiliarFolios13MultiValidatorTest extends TestCase
             Base\DifferentRfcDetAuxFolComprNal::class,
             Base\CurrencyDetAuxFolComprNal::class,
             Base\ExchangeRateDetAuxFolComprNal::class,
+            Base\DifferentRfcDetAuxFolComprNalOtr::class,
             Base\CurrencyDetAuxFolComprNalOtr::class,
             Base\ExchangeRateDetAuxFolComprNalOtr::class,
             Base\CurrencyDetAuxFolComprExt::class,
