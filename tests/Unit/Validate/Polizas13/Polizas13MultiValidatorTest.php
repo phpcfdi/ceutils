@@ -23,6 +23,7 @@ final class Polizas13MultiValidatorTest extends TestCase
             Base\DifferentRfcTransaccionCompNal::class,
             Base\CurrencyTransaccionCompNal::class,
             Base\ExchangeRateTransaccionCompNal::class,
+            Base\DifferentRfcTransaccionCompNalOtr::class,
             Base\CurrencyTransaccionCompNalOtr::class,
             Base\ExchangeRateTransaccionCompNalOtr::class,
             Base\CurrencyTransaccionCompExt::class,
