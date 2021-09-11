@@ -14,6 +14,7 @@ class Polizas13MultiValidator extends MultiValidator
         Base\Certificate::class,
         Base\NumOrden::class,
         Base\NumTramite::class,
+        Base\UniquePolizaNumber::class,
         Base\DifferentRfcTransaccionCompNal::class,
         Base\CurrencyTransaccionCompNal::class,
         Base\ExchangeRateTransaccionCompNal::class,

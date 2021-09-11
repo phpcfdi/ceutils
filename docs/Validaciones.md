@@ -36,7 +36,7 @@
 
 ### Elemento `Polizas/Poliza`
 
-- [ ] `NumUnIdenPol`: En un mes ordinario no debe repetirse un mismo número de póliza.
+- [X] `NumUnIdenPol`: En un mes ordinario no debe repetirse un mismo número de póliza.
 
 ### Elemento `Polizas/Poliza/Transaccion/CompNal`
 
