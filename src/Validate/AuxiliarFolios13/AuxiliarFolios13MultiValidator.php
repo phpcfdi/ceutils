@@ -18,5 +18,7 @@ class AuxiliarFolios13MultiValidator extends MultiValidator
         Base\ExchangeRateDetAuxFolComprNal::class,
         Base\CurrencyDetAuxFolComprNalOtr::class,
         Base\ExchangeRateDetAuxFolComprNalOtr::class,
+        Base\CurrencyDetAuxFolComprExt::class,
+        Base\ExchangeRateDetAuxFolComprExt::class,
     ];
 }

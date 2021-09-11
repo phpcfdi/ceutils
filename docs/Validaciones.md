@@ -102,8 +102,8 @@
 
 ### Elemento `RepAuxFol/DetAuxFol/ComprExt`
 
-- [ ] `Moneda`: Diferente de moneda nacional.
-- [ ] `TipCamb`: Requerido cuando la moneda esté definida.
+- [X] `Moneda`: Diferente de moneda nacional.
+- [X] `TipCamb`: Requerido cuando la moneda esté definida.
 
 ## Reporte de Auxiliares de cuenta
 
