@@ -25,6 +25,7 @@ class Polizas13MultiValidator extends MultiValidator
         Base\DifferentRfcTransaccionCheque::class,
         Base\CurrencyTransaccionCheque::class,
         Base\ExchangeRateTransaccionCheque::class,
+        Base\DifferentRfcTransaccionTransferencia::class,
         Base\CurrencyTransaccionTransferencia::class,
         Base\ExchangeRateTransaccionTransferencia::class,
         Base\CurrencyTransaccionOtrMetodoPago::class,
