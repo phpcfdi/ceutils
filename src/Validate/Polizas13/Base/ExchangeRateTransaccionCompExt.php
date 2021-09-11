@@ -16,6 +16,6 @@ final class ExchangeRateTransaccionCompExt extends BaseExchangeRate
 {
     public static function create(): self
     {
-        return new self('PLZ13COMEXT', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompExt');
+        return new self('PLZ13COMEXTEXR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompExt');
     }
 }

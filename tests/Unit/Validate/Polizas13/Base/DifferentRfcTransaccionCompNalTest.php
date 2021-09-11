@@ -14,7 +14,7 @@ final class DifferentRfcTransaccionCompNalTest extends TestCase
     {
         $validator = DifferentRfcTransaccionCompNal::create();
         $this->assertInstanceOf(BaseDifferentRfc::class, $validator);
-        $this->assertSame('PLZ13COMNALX', $validator->getAssertCode('X'));
+        $this->assertSame('PLZ13COMNALRFCX', $validator->getAssertCode('X'));
         $this->assertSame(['PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompNal'], $validator->getPath());
     }
 }

@@ -16,6 +16,6 @@ final class DifferentRfcTransaccionTransferencia extends BaseDifferentRfc
 {
     public static function create(): self
     {
-        return new self('PLZ13TRANSFER', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Transferencia');
+        return new self('PLZ13TRANSFERRFC', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Transferencia');
     }
 }

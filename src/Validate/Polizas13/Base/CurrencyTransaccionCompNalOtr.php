@@ -16,6 +16,6 @@ final class CurrencyTransaccionCompNalOtr extends BaseCurrency
 {
     public static function create(): self
     {
-        return new self('PLZ13COMOTR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompNalOtr');
+        return new self('PLZ13COMOTRCUR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompNalOtr');
     }
 }

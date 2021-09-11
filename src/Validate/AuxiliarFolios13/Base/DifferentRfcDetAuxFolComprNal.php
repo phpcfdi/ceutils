@@ -16,6 +16,6 @@ final class DifferentRfcDetAuxFolComprNal extends BaseDifferentRfc
 {
     public static function create(): self
     {
-        return new self('AUXFOL13COMNAL', 'RepAux:DetAuxFol', 'RepAux:ComprNal');
+        return new self('AUXFOL13COMNALRFC', 'RepAux:DetAuxFol', 'RepAux:ComprNal');
     }
 }

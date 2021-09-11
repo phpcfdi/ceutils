@@ -18,7 +18,7 @@ final class BaseDifferentRfcTest extends TestCase
     {
         parent::setUp();
 
-        $this->validator = new class('FOO_', ...['a:foo', 'a:bar']) extends BaseDifferentRfc {
+        $this->validator = new class('FOO', ...['a:foo', 'a:bar']) extends BaseDifferentRfc {
             public static function create(): void
             {
                 throw new LogicException("Static method won't be tested");
@@ -29,7 +29,7 @@ final class BaseDifferentRfcTest extends TestCase
     public function testProperties(): void
     {
         // defined in set up
-        $this->assertSame('FOO_X', $this->validator->getAssertCode('X'));
+        $this->assertSame('FOOX', $this->validator->getAssertCode('X'));
         $this->assertSame(['a:foo', 'a:bar'], $this->validator->getPath());
     }
 
@@ -38,7 +38,7 @@ final class BaseDifferentRfcTest extends TestCase
         $root = new Node('a:root', ['RFC' => 'AAA010101AAA']);
         $asserts = new Asserts();
         $this->validator->validate($root, $asserts);
-        $this->assertTrue($asserts->get('FOO_RFC')->getStatus()->isNone());
+        $this->assertTrue($asserts->get('FOO')->getStatus()->isNone());
     }
 
     public function testValidateAllRfcAreOk(): void
@@ -51,10 +51,10 @@ final class BaseDifferentRfcTest extends TestCase
         ]);
         $asserts = new Asserts();
         $this->validator->validate($root, $asserts);
-        $this->assertTrue($asserts->get('FOO_RFC')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_RFC-001')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_RFC-002')->getStatus()->isOk());
-        $this->assertFalse($asserts->exists('FOO_RFC-003'));
+        $this->assertTrue($asserts->get('FOO')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-001')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-002')->getStatus()->isOk());
+        $this->assertFalse($asserts->exists('FOO-003'));
     }
 
     public function testValidateSomeRfcAreInvalid(): void
@@ -69,11 +69,11 @@ final class BaseDifferentRfcTest extends TestCase
         ]);
         $asserts = new Asserts();
         $this->validator->validate($root, $asserts);
-        $this->assertTrue($asserts->get('FOO_RFC')->getStatus()->isError());
-        $this->assertTrue($asserts->get('FOO_RFC-001')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_RFC-002')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_RFC-003')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_RFC-004')->getStatus()->isError());
-        $this->assertFalse($asserts->exists('FOO_RFC-005'));
+        $this->assertTrue($asserts->get('FOO')->getStatus()->isError());
+        $this->assertTrue($asserts->get('FOO-001')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-002')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-003')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-004')->getStatus()->isError());
+        $this->assertFalse($asserts->exists('FOO-005'));
     }
 }

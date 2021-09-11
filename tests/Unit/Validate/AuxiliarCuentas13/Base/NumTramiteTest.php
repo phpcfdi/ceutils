@@ -14,6 +14,6 @@ final class NumTramiteTest extends TestCase
     {
         $validator = NumTramite::create();
         $this->assertInstanceOf(BaseNumTramite::class, $validator);
-        $this->assertSame('AUXCTA13X', $validator->getAssertCode('X'));
+        $this->assertSame('AUXCTA13NTRX', $validator->getAssertCode('X'));
     }
 }

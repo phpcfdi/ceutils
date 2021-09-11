@@ -14,6 +14,6 @@ final class NumOrdenTest extends TestCase
     {
         $validator = NumOrden::create();
         $this->assertInstanceOf(BaseNumOrden::class, $validator);
-        $this->assertSame('AUXFOL13X', $validator->getAssertCode('X'));
+        $this->assertSame('AUXFOL13NORX', $validator->getAssertCode('X'));
     }
 }

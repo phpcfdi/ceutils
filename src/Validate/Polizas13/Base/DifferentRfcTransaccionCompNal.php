@@ -16,6 +16,6 @@ final class DifferentRfcTransaccionCompNal extends BaseDifferentRfc
 {
     public static function create(): self
     {
-        return new self('PLZ13COMNAL', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompNal');
+        return new self('PLZ13COMNALRFC', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompNal');
     }
 }

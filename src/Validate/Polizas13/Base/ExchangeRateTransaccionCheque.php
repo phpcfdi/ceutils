@@ -16,6 +16,6 @@ final class ExchangeRateTransaccionCheque extends BaseExchangeRate
 {
     public static function create(): self
     {
-        return new self('PLZ13CHEQUE', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Cheque');
+        return new self('PLZ13CHEQUEEXR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Cheque');
     }
 }

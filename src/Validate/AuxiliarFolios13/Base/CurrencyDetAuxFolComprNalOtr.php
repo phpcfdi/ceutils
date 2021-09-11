@@ -16,6 +16,6 @@ final class CurrencyDetAuxFolComprNalOtr extends BaseCurrency
 {
     public static function create(): self
     {
-        return new self('AUXFOL13COMOTR', 'RepAux:DetAuxFol', 'RepAux:ComprNalOtr');
+        return new self('AUXFOL13COMOTRCUR', 'RepAux:DetAuxFol', 'RepAux:ComprNalOtr');
     }
 }

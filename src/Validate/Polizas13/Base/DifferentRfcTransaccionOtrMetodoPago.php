@@ -16,6 +16,6 @@ final class DifferentRfcTransaccionOtrMetodoPago extends BaseDifferentRfc
 {
     public static function create(): self
     {
-        return new self('PLZ13OTRPAG', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:OtrMetodoPago');
+        return new self('PLZ13OTRPAGRFC', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:OtrMetodoPago');
     }
 }

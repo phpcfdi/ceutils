@@ -14,7 +14,7 @@ final class CurrencyTransaccionCompNalTest extends TestCase
     {
         $validator = CurrencyTransaccionCompNal::create();
         $this->assertInstanceOf(BaseCurrency::class, $validator);
-        $this->assertSame('PLZ13COMNALX', $validator->getAssertCode('X'));
+        $this->assertSame('PLZ13COMNALCURX', $validator->getAssertCode('X'));
         $this->assertSame(['PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompNal'], $validator->getPath());
     }
 }

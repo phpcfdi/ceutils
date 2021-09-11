@@ -16,6 +16,6 @@ final class CurrencyTransaccionOtrMetodoPago extends BaseCurrency
 {
     public static function create(): self
     {
-        return new self('PLZ13OTRPAG', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:OtrMetodoPago');
+        return new self('PLZ13OTRPAGCUR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:OtrMetodoPago');
     }
 }

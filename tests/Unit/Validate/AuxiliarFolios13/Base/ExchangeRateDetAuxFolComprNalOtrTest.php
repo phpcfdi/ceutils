@@ -14,7 +14,7 @@ final class ExchangeRateDetAuxFolComprNalOtrTest extends TestCase
     {
         $validator = ExchangeRateDetAuxFolComprNalOtr::create();
         $this->assertInstanceOf(BaseExchangeRate::class, $validator);
-        $this->assertSame('AUXFOL13COMOTRX', $validator->getAssertCode('X'));
+        $this->assertSame('AUXFOL13COMOTREXRX', $validator->getAssertCode('X'));
         $this->assertSame(['RepAux:DetAuxFol', 'RepAux:ComprNalOtr'], $validator->getPath());
     }
 }

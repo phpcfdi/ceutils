@@ -16,6 +16,6 @@ final class DifferentRfcTransaccionCheque extends BaseDifferentRfc
 {
     public static function create(): self
     {
-        return new self('PLZ13CHEQUE', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Cheque');
+        return new self('PLZ13CHEQUERFC', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Cheque');
     }
 }

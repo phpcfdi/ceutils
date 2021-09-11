@@ -15,6 +15,6 @@ class NumTramite extends BaseNumTramite
 {
     public static function create(): self
     {
-        return new self('PLZ13');
+        return new self('PLZ13NTR');
     }
 }

@@ -22,7 +22,7 @@ abstract class BaseNumTramite implements ValidatorInterface
     public function validate(NodeInterface $root, Asserts $asserts): void
     {
         $message = 'El número de trámite es requerido cuando el tipo de solicitud es Devolución o Compensación';
-        $assert = $asserts->put($this->getAssertCode('NTR01'), $message);
+        $assert = $asserts->put($this->getAssertCode('01'), $message);
         $tipoSolicitud = $root['TipoSolicitud'];
         if (in_array($tipoSolicitud, ['DE', 'CO'], true)) {
             $numTramite = $root['NumTramite'];

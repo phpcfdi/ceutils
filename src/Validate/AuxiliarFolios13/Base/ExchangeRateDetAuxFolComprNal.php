@@ -17,6 +17,6 @@ final class ExchangeRateDetAuxFolComprNal extends BaseExchangeRate
 {
     public static function create(): self
     {
-        return new self('AUXFOL13COMNAL', 'RepAux:DetAuxFol', 'RepAux:ComprNal');
+        return new self('AUXFOL13COMNALEXR', 'RepAux:DetAuxFol', 'RepAux:ComprNal');
     }
 }

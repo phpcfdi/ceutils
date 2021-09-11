@@ -26,7 +26,7 @@ abstract class BaseExchangeRate implements ValidatorInterface
     public function validate(NodeInterface $root, Asserts $asserts): void
     {
         $assert = $asserts->put(
-            $this->getAssertCode('EXR'),
+            $this->getAssertCode(''),
             'El tipo de cambio se establece únicamente cuando el registro no es en moneda nacional',
         );
 
@@ -48,7 +48,7 @@ abstract class BaseExchangeRate implements ValidatorInterface
 
         $exchangeRate = $node['TipCamb'];
         $asserts->put(
-            $this->getAssertCode('EXR') . sprintf('-%03d', $count),
+            $this->getAssertCode(sprintf('-%03d', $count)),
             'El tipo de cambio debe tener un valor en caso de que la moneda sea diferente a moneda nacional',
             Status::when(! $currencyExists || '' !== $exchangeRate),
             sprintf('Moneda: %s, TipCamb: %s, Nodo: %s', $currencyExplanation, $exchangeRate, $location)

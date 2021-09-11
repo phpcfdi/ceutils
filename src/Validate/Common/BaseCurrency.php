@@ -26,7 +26,7 @@ abstract class BaseCurrency implements ValidatorInterface
     public function validate(NodeInterface $root, Asserts $asserts): void
     {
         $assert = $asserts->put(
-            $this->getAssertCode('CUR'),
+            $this->getAssertCode(''),
             'La moneda se establece únicamente cuando el registro no es en moneda nacional',
         );
 
@@ -46,7 +46,7 @@ abstract class BaseCurrency implements ValidatorInterface
         $currency = $node['Moneda'];
         $currencyExplanation = $currencyExists ? $currency ?: '(vacía)' : '(ninguna)';
         $asserts->put(
-            $this->getAssertCode('CUR') . sprintf('-%03d', $count),
+            $this->getAssertCode(sprintf('-%03d', $count)),
             'La moneda solo se especifica en caso de que sea diferente a moneda nacional',
             Status::when(! $currencyExists || ! in_array($currency, ['', 'MXN'], true)),
             sprintf('Moneda: %s, Nodo: %s', $currencyExplanation, $location)

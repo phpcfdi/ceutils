@@ -18,7 +18,7 @@ final class BaseExchangeRateTest extends TestCase
     {
         parent::setUp();
 
-        $this->validator = new class('FOO_', ...['a:foo', 'a:bar']) extends BaseExchangeRate {
+        $this->validator = new class('FOO', ...['a:foo', 'a:bar']) extends BaseExchangeRate {
             public static function create(): void
             {
                 throw new LogicException('Static method wont be tested');
@@ -29,7 +29,7 @@ final class BaseExchangeRateTest extends TestCase
     public function testProperties(): void
     {
         // defined in set up
-        $this->assertSame('FOO_X', $this->validator->getAssertCode('X'));
+        $this->assertSame('FOOX', $this->validator->getAssertCode('X'));
         $this->assertSame(['a:foo', 'a:bar'], $this->validator->getPath());
     }
 
@@ -38,7 +38,7 @@ final class BaseExchangeRateTest extends TestCase
         $root = new Node('a:root');
         $asserts = new Asserts();
         $this->validator->validate($root, $asserts);
-        $this->assertTrue($asserts->get('FOO_EXR')->getStatus()->isNone());
+        $this->assertTrue($asserts->get('FOO')->getStatus()->isNone());
     }
 
     public function testValidateExchangeRateIsDefinedWhenRequired(): void
@@ -54,11 +54,11 @@ final class BaseExchangeRateTest extends TestCase
         ]);
         $asserts = new Asserts();
         $this->validator->validate($root, $asserts);
-        $this->assertTrue($asserts->get('FOO_EXR')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_EXR-001')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_EXR-002')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_EXR-003')->getStatus()->isOk());
-        $this->assertFalse($asserts->exists('FOO_EXR-004'));
+        $this->assertTrue($asserts->get('FOO')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-001')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-002')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-003')->getStatus()->isOk());
+        $this->assertFalse($asserts->exists('FOO-004'));
     }
 
     public function testValidateExchangeRateIsInvalid(): void
@@ -73,11 +73,11 @@ final class BaseExchangeRateTest extends TestCase
         ]);
         $asserts = new Asserts();
         $this->validator->validate($root, $asserts);
-        $this->assertTrue($asserts->get('FOO_EXR')->getStatus()->isError());
-        $this->assertTrue($asserts->get('FOO_EXR-001')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_EXR-002')->getStatus()->isOk());
-        $this->assertTrue($asserts->get('FOO_EXR-003')->getStatus()->isError());
-        $this->assertTrue($asserts->get('FOO_EXR-004')->getStatus()->isError());
-        $this->assertFalse($asserts->exists('FOO_EXR-005'));
+        $this->assertTrue($asserts->get('FOO')->getStatus()->isError());
+        $this->assertTrue($asserts->get('FOO-001')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-002')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('FOO-003')->getStatus()->isError());
+        $this->assertTrue($asserts->get('FOO-004')->getStatus()->isError());
+        $this->assertFalse($asserts->exists('FOO-005'));
     }
 }

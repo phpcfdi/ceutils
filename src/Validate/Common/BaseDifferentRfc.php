@@ -26,7 +26,7 @@ abstract class BaseDifferentRfc implements ValidatorInterface
     public function validate(NodeInterface $root, Asserts $asserts): void
     {
         $assert = $asserts->put(
-            $this->getAssertCode('RFC'),
+            $this->getAssertCode(''),
             'Los RFC de la información detallada deben ser distintos al RFC del emisor',
         );
 
@@ -50,7 +50,7 @@ abstract class BaseDifferentRfc implements ValidatorInterface
     ): void {
         $rfc = $node['RFC'];
         $asserts->put(
-            $this->getAssertCode('RFC') . sprintf('-%03d', $count),
+            $this->getAssertCode(sprintf('-%03d', $count)),
             'El RFC de referencia debe ser distinto al registro del que envía los datos',
             Status::when($issuerRfc !== $rfc),
             sprintf('RFC Emisor: %s, RFC: %s, Nodo: %s', $issuerRfc, $rfc, $location)

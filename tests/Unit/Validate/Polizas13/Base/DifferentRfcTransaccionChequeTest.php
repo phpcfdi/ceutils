@@ -14,7 +14,7 @@ final class DifferentRfcTransaccionChequeTest extends TestCase
     {
         $validator = DifferentRfcTransaccionCheque::create();
         $this->assertInstanceOf(BaseDifferentRfc::class, $validator);
-        $this->assertSame('PLZ13CHEQUEX', $validator->getAssertCode('X'));
+        $this->assertSame('PLZ13CHEQUERFCX', $validator->getAssertCode('X'));
         $this->assertSame(['PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Cheque'], $validator->getPath());
     }
 }

@@ -16,6 +16,6 @@ final class CurrencyTransaccionTransferencia extends BaseCurrency
 {
     public static function create(): self
     {
-        return new self('PLZ13TRANSFER', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Transferencia');
+        return new self('PLZ13TRANSFERCUR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Transferencia');
     }
 }

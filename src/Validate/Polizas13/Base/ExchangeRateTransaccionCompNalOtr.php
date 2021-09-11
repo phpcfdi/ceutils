@@ -16,6 +16,6 @@ final class ExchangeRateTransaccionCompNalOtr extends BaseExchangeRate
 {
     public static function create(): self
     {
-        return new self('PLZ13COMOTR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompNalOtr');
+        return new self('PLZ13COMOTREXR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompNalOtr');
     }
 }

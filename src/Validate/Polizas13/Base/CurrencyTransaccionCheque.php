@@ -16,6 +16,6 @@ final class CurrencyTransaccionCheque extends BaseCurrency
 {
     public static function create(): self
     {
-        return new self('PLZ13CHEQUE', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Cheque');
+        return new self('PLZ13CHEQUECUR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Cheque');
     }
 }

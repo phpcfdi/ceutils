@@ -16,6 +16,6 @@ class NumOrden extends BaseNumOrden
 {
     public static function create(): self
     {
-        return new self('PLZ13');
+        return new self('PLZ13NOR');
     }
 }

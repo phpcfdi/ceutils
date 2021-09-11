@@ -45,7 +45,7 @@ final class BaseNumTramiteTest extends TestCase
         $asserts = new Asserts();
         $this->validator->validate($node, $asserts);
 
-        $this->assertTrue($asserts->get('PREFIXNTR01')->getStatus()->isOk());
+        $this->assertTrue($asserts->get('PREFIX01')->getStatus()->isOk());
     }
 
     /** @dataProvider providerTipoSolicitudApply */
@@ -59,7 +59,7 @@ final class BaseNumTramiteTest extends TestCase
         $asserts = new Asserts();
         $this->validator->validate($node, $asserts);
 
-        $this->assertTrue($asserts->get('PREFIXNTR01')->getStatus()->isError());
+        $this->assertTrue($asserts->get('PREFIX01')->getStatus()->isError());
     }
 
     /** @return array<string, array<string>> */
@@ -85,6 +85,6 @@ final class BaseNumTramiteTest extends TestCase
         $asserts = new Asserts();
         $this->validator->validate($node, $asserts);
 
-        $this->assertTrue($asserts->get('PREFIXNTR01')->getStatus()->isNone());
+        $this->assertTrue($asserts->get('PREFIX01')->getStatus()->isNone());
     }
 }

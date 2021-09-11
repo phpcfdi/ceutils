@@ -14,7 +14,7 @@ final class ExchangeRateTransaccionChequeTest extends TestCase
     {
         $validator = ExchangeRateTransaccionCheque::create();
         $this->assertInstanceOf(BaseExchangeRate::class, $validator);
-        $this->assertSame('PLZ13CHEQUEX', $validator->getAssertCode('X'));
+        $this->assertSame('PLZ13CHEQUEEXRX', $validator->getAssertCode('X'));
         $this->assertSame(['PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Cheque'], $validator->getPath());
     }
 }

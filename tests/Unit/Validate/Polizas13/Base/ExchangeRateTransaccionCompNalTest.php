@@ -14,7 +14,7 @@ final class ExchangeRateTransaccionCompNalTest extends TestCase
     {
         $validator = ExchangeRateTransaccionCompNal::create();
         $this->assertInstanceOf(BaseExchangeRate::class, $validator);
-        $this->assertSame('PLZ13COMNALX', $validator->getAssertCode('X'));
+        $this->assertSame('PLZ13COMNALEXRX', $validator->getAssertCode('X'));
         $this->assertSame(['PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompNal'], $validator->getPath());
     }
 }

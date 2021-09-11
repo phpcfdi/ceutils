@@ -16,6 +16,6 @@ final class ExchangeRateTransaccionTransferencia extends BaseExchangeRate
 {
     public static function create(): self
     {
-        return new self('PLZ13TRANSFER', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Transferencia');
+        return new self('PLZ13TRANSFEREXR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Transferencia');
     }
 }

@@ -14,7 +14,7 @@ final class CurrencyTransaccionOtrMetodoPagoTest extends TestCase
     {
         $validator = CurrencyTransaccionOtrMetodoPago::create();
         $this->assertInstanceOf(BaseCurrency::class, $validator);
-        $this->assertSame('PLZ13OTRPAGX', $validator->getAssertCode('X'));
+        $this->assertSame('PLZ13OTRPAGCURX', $validator->getAssertCode('X'));
         $this->assertSame(['PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:OtrMetodoPago'], $validator->getPath());
     }
 }

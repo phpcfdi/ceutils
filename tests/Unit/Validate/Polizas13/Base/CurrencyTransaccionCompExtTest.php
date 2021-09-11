@@ -14,7 +14,7 @@ final class CurrencyTransaccionCompExtTest extends TestCase
     {
         $validator = CurrencyTransaccionCompExt::create();
         $this->assertInstanceOf(BaseCurrency::class, $validator);
-        $this->assertSame('PLZ13COMEXTX', $validator->getAssertCode('X'));
+        $this->assertSame('PLZ13COMEXTCURX', $validator->getAssertCode('X'));
         $this->assertSame(['PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompExt'], $validator->getPath());
     }
 }

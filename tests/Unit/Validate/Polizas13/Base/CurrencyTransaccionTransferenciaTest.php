@@ -14,7 +14,7 @@ final class CurrencyTransaccionTransferenciaTest extends TestCase
     {
         $validator = CurrencyTransaccionTransferencia::create();
         $this->assertInstanceOf(BaseCurrency::class, $validator);
-        $this->assertSame('PLZ13TRANSFERX', $validator->getAssertCode('X'));
+        $this->assertSame('PLZ13TRANSFERCURX', $validator->getAssertCode('X'));
         $this->assertSame(['PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:Transferencia'], $validator->getPath());
     }
 }

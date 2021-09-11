@@ -14,7 +14,7 @@ final class DifferentRfcDetAuxFolComprNalOtrTest extends TestCase
     {
         $validator = DifferentRfcDetAuxFolComprNalOtr::create();
         $this->assertInstanceOf(BaseDifferentRfc::class, $validator);
-        $this->assertSame('AUXFOL13COMOTRX', $validator->getAssertCode('X'));
+        $this->assertSame('AUXFOL13COMOTRRFCX', $validator->getAssertCode('X'));
         $this->assertSame(['RepAux:DetAuxFol', 'RepAux:ComprNalOtr'], $validator->getPath());
     }
 }

@@ -14,7 +14,7 @@ final class CurrencyDetAuxFolComprExtTest extends TestCase
     {
         $validator = CurrencyDetAuxFolComprExt::create();
         $this->assertInstanceOf(BaseCurrency::class, $validator);
-        $this->assertSame('AUXFOL13COMEXTX', $validator->getAssertCode('X'));
+        $this->assertSame('AUXFOL13COMEXTCURX', $validator->getAssertCode('X'));
         $this->assertSame(['RepAux:DetAuxFol', 'RepAux:ComprExt'], $validator->getPath());
     }
 }

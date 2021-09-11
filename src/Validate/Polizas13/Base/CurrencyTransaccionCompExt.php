@@ -16,6 +16,6 @@ final class CurrencyTransaccionCompExt extends BaseCurrency
 {
     public static function create(): self
     {
-        return new self('PLZ13COMEXT', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompExt');
+        return new self('PLZ13COMEXTCUR', 'PLZ:Poliza', 'PLZ:Transaccion', 'PLZ:CompExt');
     }
 }
