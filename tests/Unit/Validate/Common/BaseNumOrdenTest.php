@@ -12,20 +12,20 @@ use PhpCfdi\CeUtils\Validate\Common\BaseNumOrden;
 
 final class BaseNumOrdenTest extends TestCase
 {
-    /** @var BaseNumOrden */
-    private $validator;
+    private BaseNumOrden $validator;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->validator = new class('PREFIX') extends BaseNumOrden {
-            public static function create(): self
+            public static function create(): void
             {
                 throw new LogicException("Static method won't be tested");
             }
         };
     }
 
+    /** @return array<string, array<string>> */
     public function providerTipoSolicitudThatRequireNumOrden(): array
     {
         return [
@@ -62,6 +62,7 @@ final class BaseNumOrdenTest extends TestCase
         $this->assertTrue($asserts->get('PREFIXNOR01')->getStatus()->isError());
     }
 
+    /** @return array<string, array<string>> */
     public function providerTipoSolicitudNotApply(): array
     {
         return [

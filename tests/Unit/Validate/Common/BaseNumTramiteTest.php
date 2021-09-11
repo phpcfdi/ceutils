@@ -12,20 +12,20 @@ use PhpCfdi\CeUtils\Validate\Common\BaseNumTramite;
 
 final class BaseNumTramiteTest extends TestCase
 {
-    /** @var BaseNumTramite */
-    private $validator;
+    private BaseNumTramite $validator;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->validator = new class('PREFIX') extends BaseNumTramite {
-            public static function create(): self
+            public static function create(): void
             {
                 throw new LogicException("Static method won't be tested");
             }
         };
     }
 
+    /** @return array<string, array<string>> */
     public function providerTipoSolicitudApply(): array
     {
         return [
@@ -62,6 +62,7 @@ final class BaseNumTramiteTest extends TestCase
         $this->assertTrue($asserts->get('PREFIXNTR01')->getStatus()->isError());
     }
 
+    /** @return array<string, array<string>> */
     public function providerTipoSolicitudNotApply(): array
     {
         return [

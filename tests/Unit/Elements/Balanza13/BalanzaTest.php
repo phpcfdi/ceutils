@@ -40,7 +40,7 @@ final class BalanzaTest extends TestCase
         $this->assertNotSame($first, $second);
     }
 
-    public function testMultiCuenta()
+    public function testMultiCuenta(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);

@@ -25,7 +25,7 @@ final class DetAuxFolTest extends TestCase
         $this->assertSame('RepAux:DetAuxFol', $this->element->getElementName());
     }
 
-    public function testAddComprNal()
+    public function testAddComprNal(): void
     {
         $parent = $this->element;
         $this->assertCount(0, $parent);
@@ -40,7 +40,7 @@ final class DetAuxFolTest extends TestCase
         $this->assertCount(2, $this->element);
     }
 
-    public function testMultiComprNal()
+    public function testMultiComprNal(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);
@@ -53,7 +53,7 @@ final class DetAuxFolTest extends TestCase
         $this->assertSame('first', $node->searchAttribute('RepAux:ComprNal', 'id'));
     }
 
-    public function testAddComprNalOtr()
+    public function testAddComprNalOtr(): void
     {
         $parent = $this->element;
         $this->assertCount(0, $parent);
@@ -68,7 +68,7 @@ final class DetAuxFolTest extends TestCase
         $this->assertCount(2, $this->element);
     }
 
-    public function testMultiComprNalOtr()
+    public function testMultiComprNalOtr(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);
@@ -81,7 +81,7 @@ final class DetAuxFolTest extends TestCase
         $this->assertSame('first', $node->searchAttribute('RepAux:ComprNalOtr', 'id'));
     }
 
-    public function testAddComprExt()
+    public function testAddComprExt(): void
     {
         $parent = $this->element;
         $this->assertCount(0, $parent);
@@ -96,7 +96,7 @@ final class DetAuxFolTest extends TestCase
         $this->assertCount(2, $this->element);
     }
 
-    public function testMultiComprExt()
+    public function testMultiComprExt(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);

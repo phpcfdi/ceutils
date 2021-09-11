@@ -9,6 +9,7 @@ trait PathPropertyTrait
     /** @var string[] */
     private array $path;
 
+    /** @return string[] */
     public function getPath(): array
     {
         return $this->path;

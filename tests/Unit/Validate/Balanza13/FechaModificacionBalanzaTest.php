@@ -11,6 +11,7 @@ use PhpCfdi\CeUtils\Validate\Balanza13\FechaModificacionBalanza;
 
 final class FechaModificacionBalanzaTest extends TestCase
 {
+    /** @return array<string, array<string|null>> */
     public function providerTipoEnvioNormalWithFechaModBal(): array
     {
         return [
