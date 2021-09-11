@@ -76,7 +76,7 @@ abstract class BaseCertificate implements
         $asserts->putStatus(
             $this->getAssertCode('03'),
             Status::when($certificate->rfc() === $root['RFC']),
-            sprintf('Esperado: %s. Actual: %s', $certificate->rfc(), $root['Rfc'])
+            sprintf('Esperado: %s. Actual: %s', $certificate->rfc(), $root['RFC'])
         );
 
         $sourceString = $this->buildSourceString();
