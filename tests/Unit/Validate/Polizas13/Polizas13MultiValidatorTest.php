@@ -30,6 +30,8 @@ final class Polizas13MultiValidatorTest extends TestCase
             Base\ExchangeRateTransaccionCheque::class,
             Base\CurrencyTransaccionTransferencia::class,
             Base\ExchangeRateTransaccionTransferencia::class,
+            Base\CurrencyTransaccionOtrMetodoPago::class,
+            Base\ExchangeRateTransaccionOtrMetodoPago::class,
         ];
         $this->assertSame($expected, $validators);
     }
