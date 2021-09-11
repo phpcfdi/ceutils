@@ -20,6 +20,7 @@ final class Polizas13MultiValidatorTest extends TestCase
             Base\Certificate::class,
             Base\NumOrden::class,
             Base\NumTramite::class,
+            Base\DifferentRfcTransaccionCompNal::class,
             Base\CurrencyTransaccionCompNal::class,
             Base\ExchangeRateTransaccionCompNal::class,
             Base\CurrencyTransaccionCompNalOtr::class,
