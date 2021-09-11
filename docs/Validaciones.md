@@ -86,7 +86,7 @@
 
 ### Elemento `RepAuxFol/DetAuxFol`
 
-- [ ] `NumUnIdenPol`: En un mes ordinario no debe repetirse un mismo número de póliza.
+- [X] `NumUnIdenPol`: En un mes ordinario no debe repetirse un mismo número de póliza.
 
 ### Elemento `RepAuxFol/DetAuxFol/ComprNal`
 

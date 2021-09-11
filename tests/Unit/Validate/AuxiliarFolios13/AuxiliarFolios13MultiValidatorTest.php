@@ -20,6 +20,7 @@ final class AuxiliarFolios13MultiValidatorTest extends TestCase
             Base\Certificate::class,
             Base\NumOrden::class,
             Base\NumTramite::class,
+            Base\UniquePolizaNumber::class,
             Base\DifferentRfcDetAuxFolComprNal::class,
             Base\CurrencyDetAuxFolComprNal::class,
             Base\ExchangeRateDetAuxFolComprNal::class,
