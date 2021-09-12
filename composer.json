@@ -1,29 +1,37 @@
 {
     "name": "phpcfdi/ceutils",
-    "description": "",
-    "keywords": [],
+    "description": "PHP library for Mexican SAT Electronic Accounting 1.3",
+    "keywords": [
+        "mexico",
+        "sat",
+        "contabilidad electrónica",
+        "póliza",
+        "balanza"
+    ],
     "homepage": "https://github.com/PhpCfdi/CeUtils",
     "license": "MIT",
     "authors": [
         {
+            "name": "Cesar Aguilera",
+            "email": "cesargnu29@gmail.com"
+        },
+        {
             "name": "Carlos C Soto",
-            "email": "eclipxe13@gmail.com",
-            "homepage": "https://github.com/PhpCfdi/CeUtils"
+            "email": "eclipxe13@gmail.com"
         }
     ],
     "require": {
         "php": ">=7.4",
         "ext-bcmath": "*",
         "ext-openssl": "*",
-        "eclipxe/cfdiutils": "^2.15",
+        "eclipxe/cfdiutils": "^2.15.1",
         "eclipxe/xmlresourceretriever": "^1.3.2",
-        "phpcfdi/credentials": "^1.1"
+        "eclipxe/xmlschemavalidator": "^2.1.2",
+        "phpcfdi/credentials": "^1.1.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.3",
-        "squizlabs/php_codesniffer": "^3.0",
-        "friendsofphp/php-cs-fixer": "^3.0",
-        "phpstan/phpstan": "^0.12"
+        "ergebnis/composer-normalize": "^2.15",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
@@ -36,29 +44,32 @@
         }
     },
     "scripts": {
-        "dev:build": ["@dev:fix-style", "@dev:test"],
+        "dev:build": [
+            "@dev:fix-style",
+            "@dev:test"
+        ],
         "dev:check-style": [
-            "@php vendor/bin/php-cs-fixer fix --dry-run --verbose",
-            "@php vendor/bin/phpcs --colors -sp src/ tests/"
+            "@php tools/php-cs-fixer fix --dry-run --verbose",
+            "@php tools/phpcs --colors -sp"
+        ],
+        "dev:coverage": [
+            "@php -dzend_extension=xdebug.so -dxdebug.mode=coverage vendor/bin/phpunit --verbose --coverage-html build/coverage/html/"
         ],
         "dev:fix-style": [
-            "@php vendor/bin/php-cs-fixer fix --verbose",
-            "@php vendor/bin/phpcbf --colors -sp src/ tests/"
+            "@php tools/php-cs-fixer fix --verbose",
+            "@php tools/phpcbf --colors -sp"
         ],
         "dev:test": [
             "@dev:check-style",
             "@php vendor/bin/phpunit --testdox --verbose --stop-on-failure",
-            "@php vendor/bin/phpstan analyse --verbose src/ tests/"
-        ],
-        "dev:coverage": [
-            "@php -dzend_extension=xdebug.so vendor/bin/phpunit --coverage-html build/coverage/html/"
+            "@php tools/phpstan analyse --no-progress"
         ]
     },
     "scripts-descriptions": {
         "dev:build": "DEV: run dev:fix-style and dev:tests, run before pull request",
         "dev:check-style": "DEV: search for code style errors using php-cs-fixer and phpcs",
+        "dev:coverage": "DEV: run phpunit with xdebug and storage coverage in build/coverage/html/",
         "dev:fix-style": "DEV: fix code style errors using php-cs-fixer and phpcbf",
-        "dev:test": "DEV: run dev:check-style, phpunit and phpstan",
-        "dev:coverage": "DEV: run phpunit with xdebug and storage coverage in build/coverage/html/"
+        "dev:test": "DEV: run dev:check-style, phpunit and phpstan"
     }
 }

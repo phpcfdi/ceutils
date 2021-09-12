@@ -1,26 +1,17 @@
-# phpcfdi/ceutils CHANGELOG
+## Acerca de SemVer
 
-## About SemVer
+Usamos [Versionado Semántico 2.0.0](SEMVER.md) por lo que puedes usar esta librería sin temor a romper tu aplicación.
 
-In summary, [SemVer](https://semver.org/) can be viewed as ` Breaking . Feature . Fix `, where:
+## Cambios no liberados en una versión
 
-- Breaking version = includes incompatible changes to the API
-- Feature version = adds new feature(s) in a backwards-compatible manner
-- Fix version = includes backwards-compatible bug fixes
+Pueden aparecer cambios no liberados que se integran a la rama principal, pero no ameritan una nueva liberación de
+versión, aunque sí su incorporación en la rama principal de trabajo. Generalmente se tratan de cambios en el desarrollo.
 
-**Version `0.x.x` doesn't have to apply any of the SemVer rules**
+## Listado de cambios
 
-## Version 0.1.1 2020-07-07
+### Version 0.2.0 2021-09-11
 
-- Fix XSLT locations to 1.3 specs, see <https://www.gob.mx/sat/acciones-y-programas/contabilidad-electronica-173700>.
-- Test source string after sign documents.
-- Add exception when empty source string.
-- Use CSD instead of FIEL to sign documents.
-
-Development:
-
-- Change `php-cs-fixer` to version 3.
-
-## Version 0.1.0 2020-01-01
-
-- Initial working release for testing with friends
+- Se adopta el proyecto de César Aquilera (@blacktrue) como parte de PhpCfdi.
+- Se actualizan los archivos de proyecto y de desarrollo.
+- Se agrega la dependencia omitida ``
+- Cambian el codebase

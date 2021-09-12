@@ -18,7 +18,7 @@ final class BaseCurrencyTest extends TestCase
     {
         parent::setUp();
 
-        $this->validator = new class('FOO', ...['a:foo', 'a:bar']) extends BaseCurrency {
+        $this->validator = new class ('FOO', ...['a:foo', 'a:bar']) extends BaseCurrency {
             public static function create(): void
             {
                 throw new LogicException("Static method won't be tested");

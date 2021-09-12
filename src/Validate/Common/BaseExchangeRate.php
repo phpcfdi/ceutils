@@ -15,7 +15,8 @@ use PhpCfdi\CeUtils\Validate\ValidatorInterface;
 
 abstract class BaseExchangeRate implements ValidatorInterface
 {
-    use AssertPrefixPropertyTrait, PathPropertyTrait;
+    use AssertPrefixPropertyTrait;
+    use PathPropertyTrait;
 
     public function __construct(string $assertPrefix, string ...$path)
     {

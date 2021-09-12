@@ -24,7 +24,10 @@ abstract class BaseCertificate implements
     RequireXmlResolverInterface,
     RequireXsltBuilderInterface
 {
-    use AssertPrefixPropertyTrait, XmlStringPropertyTrait, XmlResolverPropertyTrait, XsltBuilderPropertyTrait;
+    use AssertPrefixPropertyTrait;
+    use XmlStringPropertyTrait;
+    use XmlResolverPropertyTrait;
+    use XsltBuilderPropertyTrait;
 
     private string $xsltLocation;
 

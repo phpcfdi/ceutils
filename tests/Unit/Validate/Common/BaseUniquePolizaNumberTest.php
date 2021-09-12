@@ -18,7 +18,7 @@ final class BaseNumUnIdenPolTest extends TestCase
     {
         parent::setUp();
 
-        $this->validator = new class('FOO', 'a:foo') extends BaseUniquePolizaNumber {
+        $this->validator = new class ('FOO', 'a:foo') extends BaseUniquePolizaNumber {
             public static function create(): self
             {
                 throw new LogicException("Static method won't be tested");
@@ -50,7 +50,6 @@ final class BaseNumUnIdenPolTest extends TestCase
         ]);
         $asserts = new Asserts();
         $this->validator->validate($root, $asserts);
-        print_r($asserts->errors());
         $this->assertTrue($asserts->get('FOO')->getStatus()->isOk());
         $this->assertTrue($asserts->get('FOO-001')->getStatus()->isOk());
         $this->assertTrue($asserts->get('FOO-002')->getStatus()->isOk());

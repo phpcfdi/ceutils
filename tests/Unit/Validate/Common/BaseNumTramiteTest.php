@@ -17,7 +17,7 @@ final class BaseNumTramiteTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->validator = new class('PREFIX') extends BaseNumTramite {
+        $this->validator = new class ('PREFIX') extends BaseNumTramite {
             public static function create(): void
             {
                 throw new LogicException("Static method won't be tested");
