@@ -18,7 +18,7 @@ final class BaseNumUnIdenPolTest extends TestCase
     {
         parent::setUp();
 
-        $this->validator = new class('FOO', 'a:foo') extends BaseUniquePolizaNumber {
+        $this->validator = new class ('FOO', 'a:foo') extends BaseUniquePolizaNumber {
             public static function create(): self
             {
                 throw new LogicException("Static method won't be tested");

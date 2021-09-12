@@ -18,7 +18,7 @@ final class BaseDifferentRfcTest extends TestCase
     {
         parent::setUp();
 
-        $this->validator = new class('FOO', ...['a:foo', 'a:bar']) extends BaseDifferentRfc {
+        $this->validator = new class ('FOO', ...['a:foo', 'a:bar']) extends BaseDifferentRfc {
             public static function create(): void
             {
                 throw new LogicException("Static method won't be tested");
