@@ -20,6 +20,7 @@ final class ValidateTest extends TestCase
             'Mes' => '01',
             'Anio' => '2021',
             'TipoSolicitud' => 'DE',
+            'NumTramite' => 'XX123456789012',
         ]);
         $poliza = $creator->polizas()->addPoliza([
             'NumUnIdenPol' => '1',
@@ -35,7 +36,6 @@ final class ValidateTest extends TestCase
         ]);
         $creator->addSello($credential);
         $asserts = $creator->validate();
-        $this->assertEmpty($asserts->nones());
         $this->assertFalse($asserts->hasErrors());
         $this->assertFalse($asserts->hasWarnings());
     }

@@ -23,7 +23,7 @@ final class RepAuxFolTest extends TestCase
         $this->assertSame('RepAux:RepAuxFol', $this->element->getElementName());
     }
 
-    public function testAddDetalleAux()
+    public function testAddDetalleAux(): void
     {
         $parent = $this->element;
         $this->assertCount(0, $parent);
@@ -38,7 +38,7 @@ final class RepAuxFolTest extends TestCase
         $this->assertCount(2, $this->element);
     }
 
-    public function testMultiDetalleAux()
+    public function testMultiDetalleAux(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);

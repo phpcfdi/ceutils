@@ -26,6 +26,7 @@ abstract class BaseDocumentFollowSchemas implements
     RequireXmlResolverInterface
 {
     use XmlStringPropertyTrait;
+
     use XmlResolverPropertyTrait;
 
     private string $assertPrefix;

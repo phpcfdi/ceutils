@@ -45,7 +45,7 @@ final class TransaccionTest extends TestCase
         $this->assertNotSame($first, $second);
     }
 
-    public function testMultiCompNal()
+    public function testMultiCompNal(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);
@@ -75,7 +75,7 @@ final class TransaccionTest extends TestCase
         $this->assertNotSame($first, $second);
     }
 
-    public function testMultiCompNalOtr()
+    public function testMultiCompNalOtr(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);
@@ -105,7 +105,7 @@ final class TransaccionTest extends TestCase
         $this->assertNotSame($first, $second);
     }
 
-    public function testMultiCompExt()
+    public function testMultiCompExt(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);
@@ -135,7 +135,7 @@ final class TransaccionTest extends TestCase
         $this->assertNotSame($first, $second);
     }
 
-    public function testMultiCheque()
+    public function testMultiCheque(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);
@@ -165,7 +165,7 @@ final class TransaccionTest extends TestCase
         $this->assertNotSame($first, $second);
     }
 
-    public function testMultiTransferencia()
+    public function testMultiTransferencia(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);
@@ -195,7 +195,7 @@ final class TransaccionTest extends TestCase
         $this->assertNotSame($first, $second);
     }
 
-    public function testMultiOtrMetodoPago()
+    public function testMultiOtrMetodoPago(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);

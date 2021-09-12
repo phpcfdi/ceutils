@@ -40,7 +40,7 @@ final class PolizasTest extends TestCase
         $this->assertNotSame($first, $second);
     }
 
-    public function testMultiPoliza()
+    public function testMultiPoliza(): void
     {
         $node = $this->element;
         $this->assertCount(0, $node);

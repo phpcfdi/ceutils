@@ -12,5 +12,16 @@ class AuxiliarFolios13MultiValidator extends MultiValidator
         Base\DocumentDefinition::class,
         Base\DocumentFollowSchemas::class,
         Base\Certificate::class,
+        Base\NumOrden::class,
+        Base\NumTramite::class,
+        Base\UniquePolizaNumber::class,
+        Base\DifferentRfcDetAuxFolComprNal::class,
+        Base\CurrencyDetAuxFolComprNal::class,
+        Base\ExchangeRateDetAuxFolComprNal::class,
+        Base\DifferentRfcDetAuxFolComprNalOtr::class,
+        Base\CurrencyDetAuxFolComprNalOtr::class,
+        Base\ExchangeRateDetAuxFolComprNalOtr::class,
+        Base\CurrencyDetAuxFolComprExt::class,
+        Base\ExchangeRateDetAuxFolComprExt::class,
     ];
 }

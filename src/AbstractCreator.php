@@ -17,6 +17,7 @@ use PhpCfdi\Credentials\Credential;
 abstract class AbstractCreator
 {
     use XsltBuilderPropertyTrait;
+
     use XmlResolverPropertyTrait;
 
     public function __construct(?XmlResolver $xmlResolver = null)
