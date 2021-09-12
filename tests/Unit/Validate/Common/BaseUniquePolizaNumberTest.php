@@ -50,7 +50,6 @@ final class BaseNumUnIdenPolTest extends TestCase
         ]);
         $asserts = new Asserts();
         $this->validator->validate($root, $asserts);
-        print_r($asserts->errors());
         $this->assertTrue($asserts->get('FOO')->getStatus()->isOk());
         $this->assertTrue($asserts->get('FOO-001')->getStatus()->isOk());
         $this->assertTrue($asserts->get('FOO-002')->getStatus()->isOk());

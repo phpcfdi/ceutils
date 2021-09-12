@@ -16,7 +16,7 @@
 
 En México, las personas físicas o morales requieren generar su contabilidad electrónica.
 
-Esta librería permite generar, sellar y validar los XMl para contabilidad electrónica.
+Esta librería permite generar, sellar y validar los XML para contabilidad electrónica 1.3.
 
 ## Instalación
 
@@ -26,7 +26,7 @@ Usa [composer](https://getcomposer.org/)
 composer require phpcfdi/ceutils
 ```
 
-## Ejemplo básico de uso BalanzaCreator13
+## Ejemplo básico de uso `BalanzaCreator13`
 
 ```php
 <?php
@@ -70,7 +70,7 @@ $balanza->addCuenta([
 $xml = $creator->asXml();
 ```
 
-## Ejemplo básico de uso CatalogoCreator13
+## Ejemplo básico de uso `CatalogoCreator13`
 
 ```php
 <?php
@@ -112,7 +112,7 @@ $catalogo->addCuenta([
 $xml = $creator->asXml();
 ```
 
-## Ejemplo básico de uso AuxiliarFoliosCreator13()
+## Ejemplo básico de uso `AuxiliarFoliosCreator13`
 
 ```php
 <?php
@@ -149,7 +149,7 @@ $detalleAuxiliarFolios->addComprNal([
 $xml = $creator->asXml();
 ```
 
-## Ejemplo básico de uso AuxiliarCuentasCreator13()
+## Ejemplo básico de uso `AuxiliarCuentasCreator13`
 
 ```php
 <?php
@@ -188,7 +188,7 @@ $cuenta->addDetalleAux([
 $xml = $creator->asXml();
 ```
 
-## Ejemplo básico de uso PolizasCreator13()
+## Ejemplo básico de uso `PolizasCreator13`
 
 ```php
 <?php
@@ -276,23 +276,22 @@ y recuerda revisar el archivo de tareas pendientes [TODO][] y el archivo [CHANGE
 The `phpcfdi/ceutils` library is copyright © [PhpCfdi](https://www.phpcfdi.com)
 and licensed for use under the MIT License (MIT). Please see [LICENSE][] for more information.
 
-
-[contributing]: https://github.com/phpcfdi/ceutils/blob/master/CONTRIBUTING.md
-[changelog]: https://github.com/phpcfdi/ceutils/blob/master/docs/CHANGELOG.md
-[todo]: https://github.com/phpcfdi/ceutils/blob/master/docs/TODO.md
+[contributing]: https://github.com/phpcfdi/ceutils/blob/main/CONTRIBUTING.md
+[changelog]: https://github.com/phpcfdi/ceutils/blob/main/docs/CHANGELOG.md
+[todo]: https://github.com/phpcfdi/ceutils/blob/main/docs/TODO.md
 
 [source]: https://github.com/phpcfdi/ceutils
 [release]: https://github.com/phpcfdi/ceutils/releases
-[license]: https://github.com/phpcfdi/ceutils/blob/master/LICENSE
-[build]: https://github.com/phpcfdi/ceutils/actions/workflows/build.yml?query=branch:master
+[license]: https://github.com/phpcfdi/ceutils/blob/main/LICENSE
+[build]: https://github.com/phpcfdi/ceutils/actions/workflows/build.yml?query=branch:main
 [quality]: https://scrutinizer-ci.com/g/phpcfdi/ceutils/
-[coverage]: https://scrutinizer-ci.com/g/phpcfdi/ceutils/code-structure/master/code-coverage
+[coverage]: https://scrutinizer-ci.com/g/phpcfdi/ceutils/code-structure/main/code-coverage
 [downloads]: https://packagist.org/packages/phpcfdi/ceutils
 
 [badge-source]: http://img.shields.io/badge/source-phpcfdi/ceutils-blue?style=flat-square
 [badge-release]: https://img.shields.io/github/release/phpcfdi/ceutils?style=flat-square
 [badge-license]: https://img.shields.io/github/license/phpcfdi/ceutils?style=flat-square
-[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/ceutils/build/master?style=flat-square
-[badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/ceutils/master?style=flat-square
-[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/ceutils/master?style=flat-square
+[badge-build]: https://img.shields.io/github/workflow/status/phpcfdi/ceutils/build/main?style=flat-square
+[badge-quality]: https://img.shields.io/scrutinizer/g/phpcfdi/ceutils/main?style=flat-square
+[badge-coverage]: https://img.shields.io/scrutinizer/coverage/g/phpcfdi/ceutils/main?style=flat-square
 [badge-downloads]: https://img.shields.io/packagist/dt/phpcfdi/ceutils?style=flat-square
