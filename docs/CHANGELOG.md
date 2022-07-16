@@ -27,6 +27,7 @@ Cambios en entorno de desarrollo:
 - Se agrega la revisión de compatiblidad de PHP 8.1.
 - Se dividen los pasos de construcción completa en pequeños trabajos independientes.
 - Se corrige el grupo de mantenedores del proyecto.
+- Se ignora `tests/_files` de la detección lingüística del proyecto.
 
 ### Versión 0.2.0 2021-09-11
 
