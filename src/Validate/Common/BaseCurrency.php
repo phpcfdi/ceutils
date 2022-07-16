@@ -50,7 +50,7 @@ abstract class BaseCurrency implements ValidatorInterface
             $this->getAssertCode(sprintf('-%03d', $count)),
             'La moneda solo se especifica en caso de que sea diferente a moneda nacional',
             Status::when(! $currencyExists || ! in_array($currency, ['', 'MXN'], true)),
-            sprintf('Moneda: %s, Nodo: %s', $currencyExplanation, $location)
+            sprintf('Moneda: %s, Nodo: %s', $currencyExplanation, $location),
         );
     }
 }

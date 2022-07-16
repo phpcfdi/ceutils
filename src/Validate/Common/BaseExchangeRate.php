@@ -52,7 +52,7 @@ abstract class BaseExchangeRate implements ValidatorInterface
             $this->getAssertCode(sprintf('-%03d', $count)),
             'El tipo de cambio debe tener un valor en caso de que la moneda sea diferente a moneda nacional',
             Status::when(! $currencyExists || '' !== $exchangeRate),
-            sprintf('Moneda: %s, TipCamb: %s, Nodo: %s', $currencyExplanation, $exchangeRate, $location)
+            sprintf('Moneda: %s, TipCamb: %s, Nodo: %s', $currencyExplanation, $exchangeRate, $location),
         );
     }
 }

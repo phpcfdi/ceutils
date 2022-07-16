@@ -53,7 +53,7 @@ abstract class BaseUniquePolizaNumber implements ValidatorInterface
             $this->getAssertCode(sprintf('-%03d', $index + 1)),
             'En un mes ordinario no debe repetirse un mismo número de póliza',
             Status::when(0 === $count),
-            sprintf('NumUnIdenPol: %s, Apariciones: %d', $numUnIdenPol, $count)
+            sprintf('NumUnIdenPol: %s, Apariciones: %d', $numUnIdenPol, $count),
         );
     }
 

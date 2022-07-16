@@ -28,7 +28,7 @@ abstract class BaseNumTramite implements ValidatorInterface
             $numTramite = $root['NumTramite'];
             $assert->setStatus(
                 Status::when('' !== $numTramite),
-                sprintf('TipoSolicitud: %s, Numtramite: %s', $tipoSolicitud, $numTramite)
+                sprintf('TipoSolicitud: %s, Numtramite: %s', $tipoSolicitud, $numTramite),
             );
         }
     }

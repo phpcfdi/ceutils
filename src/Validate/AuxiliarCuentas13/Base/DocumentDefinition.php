@@ -20,7 +20,7 @@ class DocumentDefinition extends BaseDocumentDefinition
         return new self(
             'AUXCTA13DOC',
             AuxiliarCuentas13Definition::ELEMENT_NAME,
-            AuxiliarCuentas13Definition::NAMESPACE
+            AuxiliarCuentas13Definition::NAMESPACE,
         );
     }
 }

@@ -20,7 +20,7 @@ class DocumentFollowSchemas extends BaseDocumentFollowSchemas
         return new self(
             'AUXCTA13SCHEMA',
             AuxiliarCuentas13Definition::NAMESPACE,
-            AuxiliarCuentas13Definition::XSD_LOCATION
+            AuxiliarCuentas13Definition::XSD_LOCATION,
         );
     }
 }

@@ -46,7 +46,7 @@ final class DetAuxFolTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiComprNal(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);
@@ -74,7 +74,7 @@ final class DetAuxFolTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiComprNalOtr(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);
@@ -102,7 +102,7 @@ final class DetAuxFolTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiComprExt(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);

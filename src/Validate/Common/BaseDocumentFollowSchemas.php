@@ -26,7 +26,6 @@ abstract class BaseDocumentFollowSchemas implements
     RequireXmlResolverInterface
 {
     use XmlStringPropertyTrait;
-
     use XmlResolverPropertyTrait;
 
     private string $assertPrefix;
@@ -69,11 +68,11 @@ abstract class BaseDocumentFollowSchemas implements
     {
         $locationAssert = $asserts->put(
             $this->getAssertName('01'),
-            'El documento usa la ruta de la definición de esquema XML definido'
+            'El documento usa la ruta de la definición de esquema XML definido',
         );
         $xsdAssert = $asserts->put(
             $this->getAssertName('02'),
-            'El documento cumple con la definición del esquema XML'
+            'El documento cumple con la definición del esquema XML',
         );
 
         $content = $this->getXmlString();
@@ -89,7 +88,7 @@ abstract class BaseDocumentFollowSchemas implements
         $xsdErrors = $this->validateXsdSchemas($schemaValidator, $schemas);
         $xsdAssert->setStatus(
             Status::when([] === $xsdErrors),
-            implode(PHP_EOL, $xsdErrors)
+            implode(PHP_EOL, $xsdErrors),
         );
     }
 
@@ -102,7 +101,7 @@ abstract class BaseDocumentFollowSchemas implements
         $locationMatches = $this->getXsdLocation() === $location;
         $locationAssert->setStatus(
             Status::when($locationMatches),
-            sprintf('Esperado: %s. Actual: %s.', $this->getXsdLocation(), $location)
+            sprintf('Esperado: %s. Actual: %s.', $this->getXsdLocation(), $location),
         );
         return $locationMatches;
     }

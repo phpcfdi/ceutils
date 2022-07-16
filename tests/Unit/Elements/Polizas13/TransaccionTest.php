@@ -51,7 +51,7 @@ final class TransaccionTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiCompNal(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);
@@ -81,7 +81,7 @@ final class TransaccionTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiCompNalOtr(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);
@@ -111,7 +111,7 @@ final class TransaccionTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiCompExt(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);
@@ -141,7 +141,7 @@ final class TransaccionTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiCheque(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);
@@ -171,7 +171,7 @@ final class TransaccionTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiTransferencia(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);
@@ -201,7 +201,7 @@ final class TransaccionTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiOtrMetodoPago(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);

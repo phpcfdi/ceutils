@@ -58,7 +58,7 @@ abstract class BaseDocumentDefinition implements ValidatorInterface
             $this->getAssertName('01'),
             'El documento tiene el nombre del nodo principal correcto',
             $status,
-            sprintf('Esperado: %s, Actual: %s.', $this->getRootElementName(), $nodeName)
+            sprintf('Esperado: %s, Actual: %s.', $this->getRootElementName(), $nodeName),
         );
 
         return $status->isOk();
@@ -74,7 +74,7 @@ abstract class BaseDocumentDefinition implements ValidatorInterface
             $this->getAssertName('02'),
             'El documento tiene el espacio de nombres correcto',
             $status,
-            sprintf('Esperado: %s, Actual: %s.', $this->getNamespace(), $namespace)
+            sprintf('Esperado: %s, Actual: %s.', $this->getNamespace(), $namespace),
         );
 
         return $status->isOk();

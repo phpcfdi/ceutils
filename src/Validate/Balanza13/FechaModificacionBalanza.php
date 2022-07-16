@@ -23,7 +23,7 @@ class FechaModificacionBalanza implements ValidatorInterface
     {
         $assert = $asserts->put(
             'BAL13FMB01',
-            'Si el tipo de envío es complemento entonces la fecha de modificación de balanza debe existir'
+            'Si el tipo de envío es complemento entonces la fecha de modificación de balanza debe existir',
         );
         if ('C' === $root['TipoEnvio']) {
             $assert->setStatus(Status::when('' !== $root['FechaModBal']));
