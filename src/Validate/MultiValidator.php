@@ -66,7 +66,7 @@ abstract class MultiValidator
     {
         if (! is_subclass_of($validatorClass, ValidatorInterface::class)) {
             throw new LogicException(
-                sprintf('The class %s is not a subclass of %s', $validatorClass, ValidatorInterface::class)
+                sprintf('The class %s is not a subclass of %s', $validatorClass, ValidatorInterface::class),
             );
         }
         $validator = call_user_func([$validatorClass, 'create']);

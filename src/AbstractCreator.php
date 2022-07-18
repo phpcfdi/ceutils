@@ -17,7 +17,6 @@ use PhpCfdi\Credentials\Credential;
 abstract class AbstractCreator
 {
     use XsltBuilderPropertyTrait;
-
     use XmlResolverPropertyTrait;
 
     public function __construct(?XmlResolver $xmlResolver = null)
@@ -49,7 +48,7 @@ abstract class AbstractCreator
 
         $this->getRootNode()->addAttributes([
             'Sello' => base64_encode(
-                $credential->privateKey()->sign($cadenaDeOrigen, $this->getSelloAlgorithm())
+                $credential->privateKey()->sign($cadenaDeOrigen, $this->getSelloAlgorithm()),
             ),
         ]);
 

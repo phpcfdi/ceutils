@@ -27,7 +27,7 @@ final class CuentasSaldoFinal implements ValidatorInterface
     {
         $assert = $asserts->put(
             'BAL13SF01',
-            'Para cada cuenta, el saldo final debe ser el saldo inicial más el debe menos el deber'
+            'Para cada cuenta, el saldo final debe ser el saldo inicial más el debe menos el deber',
         );
         $nodes = $root->searchNodes('BCE:Ctas');
         $failedIndexes = [];
@@ -40,7 +40,7 @@ final class CuentasSaldoFinal implements ValidatorInterface
         $explanation = sprintf(
             'Número de nodos: %d, Nodos con errores: %s.',
             $nodes->count(),
-            implode(', ', $failedIndexes) ?: '(ninguno)'
+            implode(', ', $failedIndexes) ?: '(ninguno)',
         );
         $assert->setStatus(Status::when([] === $failedIndexes), $explanation);
     }
@@ -64,7 +64,7 @@ final class CuentasSaldoFinal implements ValidatorInterface
                 $node['Haber'],
                 $node['SaldoFin'],
                 (string) $equals,
-            )
+            ),
         );
         return $equals;
     }

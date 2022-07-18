@@ -29,7 +29,7 @@ abstract class BaseNumOrden implements ValidatorInterface
             $numOrden = $root['NumOrden'];
             $assert->setStatus(
                 Status::when('' !== $numOrden),
-                sprintf('TipoSolicitud: %s, NumOrden: %s', $tipoSolicitud, $numOrden)
+                sprintf('TipoSolicitud: %s, NumOrden: %s', $tipoSolicitud, $numOrden),
             );
         }
     }

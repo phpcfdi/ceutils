@@ -49,15 +49,15 @@ abstract class BaseCertificate implements
         $certificateAssert = $asserts->put('01', 'El certificado se puede leer', Status::ok());
         $asserts->put(
             $this->getAssertCode('02'),
-            'El número del certificado es el mismo que el contenido en el certificado'
+            'El número del certificado es el mismo que el contenido en el certificado',
         );
         $asserts->put(
             $this->getAssertCode('03'),
-            'El Rfc del documento es el mismo que el contenido en el certificado'
+            'El Rfc del documento es el mismo que el contenido en el certificado',
         );
         $asserts->put(
             $this->getAssertCode('04'),
-            'El sello coincide con los datos del documento y el certificado'
+            'El sello coincide con los datos del documento y el certificado',
         );
 
         try {
@@ -65,7 +65,7 @@ abstract class BaseCertificate implements
         } catch (UnexpectedValueException $exception) {
             $certificateAssert->setStatus(
                 Status::error(),
-                $exception->getMessage()
+                $exception->getMessage(),
             );
             return;
         }
@@ -73,13 +73,13 @@ abstract class BaseCertificate implements
         $asserts->putStatus(
             $this->getAssertCode('02'),
             Status::when($certificate->serialNumber()->bytes() === $root['noCertificado']),
-            sprintf('Esperado: %s. Actual: %s', $certificate->serialNumber()->bytes(), $root['noCertificado'])
+            sprintf('Esperado: %s. Actual: %s', $certificate->serialNumber()->bytes(), $root['noCertificado']),
         );
 
         $asserts->putStatus(
             $this->getAssertCode('03'),
             Status::when($certificate->rfc() === $root['RFC']),
-            sprintf('Esperado: %s. Actual: %s', $certificate->rfc(), $root['RFC'])
+            sprintf('Esperado: %s. Actual: %s', $certificate->rfc(), $root['RFC']),
         );
 
         $sourceString = $this->buildSourceString();
@@ -88,7 +88,7 @@ abstract class BaseCertificate implements
         $asserts->putStatus(
             $this->getAssertCode('04'),
             Status::when($certificate->publicKey()->verify($sourceString, $signature, OPENSSL_ALGO_SHA1)),
-            "Cadena de origen: $sourceString"
+            "Cadena de origen: $sourceString",
         );
     }
 

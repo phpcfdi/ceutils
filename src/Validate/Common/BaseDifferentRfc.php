@@ -54,7 +54,7 @@ abstract class BaseDifferentRfc implements ValidatorInterface
             $this->getAssertCode(sprintf('-%03d', $count)),
             'El RFC de referencia debe ser distinto al registro del que envía los datos',
             Status::when($issuerRfc !== $rfc),
-            sprintf('RFC Emisor: %s, RFC: %s, Nodo: %s', $issuerRfc, $rfc, $location)
+            sprintf('RFC Emisor: %s, RFC: %s, Nodo: %s', $issuerRfc, $rfc, $location),
         );
     }
 }

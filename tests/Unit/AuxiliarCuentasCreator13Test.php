@@ -91,7 +91,7 @@ final class AuxiliarCuentasCreator13Test extends TestCase
                 'Concepto' => 'concepto 2',
                 'Debe' => '50',
                 'Haber' => '0',
-            ]
+            ],
         );
 
         $creator->addSello($credential);

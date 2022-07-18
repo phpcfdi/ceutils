@@ -46,7 +46,7 @@ final class PolizasTest extends TestCase
         $this->assertCount(0, $node);
         $multiReturn = $node->multiPoliza(
             ['id' => 'first'],
-            ['id' => 'second']
+            ['id' => 'second'],
         );
         $this->assertSame($multiReturn, $node);
         $this->assertCount(2, $node);

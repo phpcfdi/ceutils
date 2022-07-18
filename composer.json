@@ -43,6 +43,11 @@
             "PhpCfdi\\CeUtils\\Tests\\": "tests/"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
+    },
     "scripts": {
         "dev:build": [
             "@dev:fix-style",
