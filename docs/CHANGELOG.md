@@ -9,6 +9,18 @@ aunque sí su incorporación en la rama principal de trabajo. Generalmente, se t
 
 ## Listado de cambios
 
+### Versión 0.2.2 2022-09-28
+
+Se actualizan las dependencias:
+
+- `eclipxe/cfdiutils: ^2.15.1`.
+- `eclipxe/xmlschemavalidator": "^3.0.2`.
+
+Cambios en el entorno de desarrollo:
+
+- Se actualizan las versiones de las herramientas de desarrollo.
+- Se nombra correctamente el test `BaseUniquePolizaNumberTest`.
+
 ### Versión 0.2.1 2022-06-15
 
 Esta liberación corrige el proceso de integración continua, modifica el código fuente del proyecto y
