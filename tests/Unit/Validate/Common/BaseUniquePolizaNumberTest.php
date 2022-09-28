@@ -10,7 +10,7 @@ use LogicException;
 use PhpCfdi\CeUtils\Tests\TestCase;
 use PhpCfdi\CeUtils\Validate\Common\BaseUniquePolizaNumber;
 
-final class BaseNumUnIdenPolTest extends TestCase
+final class BaseUniquePolizaNumberTest extends TestCase
 {
     private BaseUniquePolizaNumber $validator;
 
