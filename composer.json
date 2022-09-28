@@ -27,7 +27,7 @@
         "ext-dom": "*",
         "eclipxe/cfdiutils": "^v2.23.3",
         "eclipxe/xmlresourceretriever": "^1.3.2",
-        "eclipxe/xmlschemavalidator": "^v3.0.2",
+        "eclipxe/xmlschemavalidator": "^3.0.2",
         "phpcfdi/credentials": "^1.1.3"
     },
     "require-dev": {
