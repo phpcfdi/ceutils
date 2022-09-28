@@ -13,7 +13,6 @@ use CfdiUtils\Validate\Status;
 use CfdiUtils\Validate\Traits\XmlStringPropertyTrait;
 use CfdiUtils\XmlResolver\XmlResolver;
 use CfdiUtils\XmlResolver\XmlResolverPropertyTrait;
-use DOMDocument;
 use Eclipxe\XmlSchemaValidator\Exceptions\ValidationFailException;
 use Eclipxe\XmlSchemaValidator\Schema;
 use Eclipxe\XmlSchemaValidator\Schemas;
@@ -77,9 +76,7 @@ abstract class BaseDocumentFollowSchemas implements
         );
 
         $content = $this->getXmlString();
-        $document = new DOMDocument();
-        $document->loadXML($content);
-        $schemaValidator = new SchemaValidator($document);
+        $schemaValidator = SchemaValidator::createFromString($content);
         $schemas = $schemaValidator->buildSchemas();
 
         // validate location
