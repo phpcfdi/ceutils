@@ -13,12 +13,12 @@ use CfdiUtils\Validate\Status;
 use CfdiUtils\Validate\Traits\XmlStringPropertyTrait;
 use CfdiUtils\XmlResolver\XmlResolver;
 use CfdiUtils\XmlResolver\XmlResolverPropertyTrait;
+use Eclipxe\XmlSchemaValidator\Exceptions\ValidationFailException;
+use Eclipxe\XmlSchemaValidator\Schema;
+use Eclipxe\XmlSchemaValidator\Schemas;
+use Eclipxe\XmlSchemaValidator\SchemaValidator;
 use PhpCfdi\CeUtils\Validate\ValidatorInterface;
 use XmlResourceRetriever\XsdRetriever;
-use XmlSchemaValidator\LibXmlException;
-use XmlSchemaValidator\Schema;
-use XmlSchemaValidator\Schemas;
-use XmlSchemaValidator\SchemaValidator;
 
 abstract class BaseDocumentFollowSchemas implements
     ValidatorInterface,
@@ -76,7 +76,7 @@ abstract class BaseDocumentFollowSchemas implements
         );
 
         $content = $this->getXmlString();
-        $schemaValidator = new SchemaValidator($content);
+        $schemaValidator = SchemaValidator::createFromString($content);
         $schemas = $schemaValidator->buildSchemas();
 
         // validate location
@@ -120,8 +120,8 @@ abstract class BaseDocumentFollowSchemas implements
         try {
             $schemaValidator->validateWithSchemas($schemas);
             return [];
-        } catch (LibXmlException $exception) {
-            return $this->libXmlExceptionToArray($exception);
+        } catch (ValidationFailException $exception) {
+            return $this->validationFailExceptionToArray($exception);
         }
     }
 
@@ -155,7 +155,7 @@ abstract class BaseDocumentFollowSchemas implements
         return new Schema($schema->getNamespace(), $localPath);
     }
 
-    private function libXmlExceptionToArray(LibXmlException $exception): array
+    private function validationFailExceptionToArray(ValidationFailException $exception): array
     {
         $errors = [];
         for ($ex = $exception; null !== $ex; $ex = $ex->getPrevious()) {
