@@ -24,9 +24,10 @@
         "php": ">=7.4",
         "ext-bcmath": "*",
         "ext-openssl": "*",
-        "eclipxe/cfdiutils": "^2.15.1",
+        "ext-dom": "*",
+        "eclipxe/cfdiutils": "^v2.23.3",
         "eclipxe/xmlresourceretriever": "^1.3.2",
-        "eclipxe/xmlschemavalidator": "^2.1.2",
+        "eclipxe/xmlschemavalidator": "^v3.0.2",
         "phpcfdi/credentials": "^1.1.3"
     },
     "require-dev": {
