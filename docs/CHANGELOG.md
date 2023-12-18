@@ -17,6 +17,7 @@ Para más información consulta <https://github.com/phpstan/phpstan/issues/10286
 
 Cambios en el entorno de desarrollo:
 
+- Se migra de Scrutinizer-CI a SonarCloud.
 - Se actualiza el año de la licencia.
 - Se corrige la insignia de construcción.
 - Se actualizan los archivos de configuración de las herramientas de estilo de código.
