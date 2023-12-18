@@ -13,7 +13,7 @@ use PhpCfdi\CeUtils\Validate\Common\BaseDocumentFollowSchemas;
  * AUXCTA13SCHEMA01 - El documento usa la ruta de la definición de esquema XML definido
  * AUXCTA13SCHEMA02 - El documento cumple con la definición del esquema XML
  */
-class DocumentFollowSchemas extends BaseDocumentFollowSchemas
+final class DocumentFollowSchemas extends BaseDocumentFollowSchemas
 {
     public static function create(): self
     {

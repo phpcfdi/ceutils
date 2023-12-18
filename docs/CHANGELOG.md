@@ -9,6 +9,12 @@ aunque sí su incorporación en la rama principal de trabajo. Generalmente, se t
 
 ## Listado de cambios
 
+### Versión 0.2.3 2023-12-18
+
+Algunas clases de validadores no estaban marcadas como *finales*.
+PHPStan detectó esto como un problema al utilizar el método estático `create(): self`.
+Para más información consulta <https://github.com/phpstan/phpstan/issues/10286>.
+
 ### Versión 0.2.2 2022-09-28
 
 Se actualizan las dependencias:

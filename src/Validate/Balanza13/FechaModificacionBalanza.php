@@ -12,7 +12,7 @@ use PhpCfdi\CeUtils\Validate\ValidatorInterface;
 /**
  * BAL13FMB01 - Si el tipo de envío es complemento entonces la fecha de modificación de balanza debe existir
  */
-class FechaModificacionBalanza implements ValidatorInterface
+final class FechaModificacionBalanza implements ValidatorInterface
 {
     public static function create(): self
     {

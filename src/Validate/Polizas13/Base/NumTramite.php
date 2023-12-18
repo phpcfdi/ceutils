@@ -11,7 +11,7 @@ use PhpCfdi\CeUtils\Validate\Common\BaseNumTramite;
  *
  * PLZ13NTR01 - El número de trámite es requerido cuando el tipo de solicitud es Devolución o Compensación
  */
-class NumTramite extends BaseNumTramite
+final class NumTramite extends BaseNumTramite
 {
     public static function create(): self
     {

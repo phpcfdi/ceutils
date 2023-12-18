@@ -15,7 +15,7 @@ use PhpCfdi\CeUtils\Validate\Common\BaseCertificate;
  * AUXCTA13CER03 - El Rfc del documento es el mismo que el contenido en el certificado
  * AUXCTA13CER04 - El sello coincide con los datos del documento y el certificado
  */
-class Certificate extends BaseCertificate
+final class Certificate extends BaseCertificate
 {
     public static function create(): self
     {
