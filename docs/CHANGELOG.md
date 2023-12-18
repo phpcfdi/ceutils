@@ -20,6 +20,7 @@ Cambios en el entorno de desarrollo:
 - Se actualiza el año de la licencia.
 - Se corrige la insignia de construcción.
 - Se actualizan los archivos de configuración de las herramientas de estilo de código.
+- Se actualizan las herramientas de desarrollo.
 
 ### Versión 0.2.2 2022-09-28
 
