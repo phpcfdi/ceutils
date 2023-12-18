@@ -18,6 +18,7 @@ Para más información consulta <https://github.com/phpstan/phpstan/issues/10286
 Cambios en el entorno de desarrollo:
 
 - Se actualiza el año de la licencia.
+- Se corrige la insignia de construcción.
 
 ### Versión 0.2.2 2022-09-28
 
