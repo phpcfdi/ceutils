@@ -18,11 +18,11 @@ return (new PhpCsFixer\Config())
         '@PHP74Migration' => true,
         '@PHP74Migration:risky' => true,
         // symfony
-        'class_attributes_separation' => true, // conflict with PSR12
+        'class_attributes_separation' => true,
         'whitespace_after_comma_in_array' => true,
         'no_empty_statement' => true,
         'no_extra_blank_lines' => true,
-        'function_typehint_space' => true,
+        'type_declaration_spaces' => true,
         'trailing_comma_in_multiline' => ['after_heredoc' => true, 'elements' => ['arrays', 'arguments']],
         'no_blank_lines_after_phpdoc' => true,
         'object_operator_without_whitespace' => true,
