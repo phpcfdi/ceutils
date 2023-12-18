@@ -13,7 +13,7 @@ use PhpCfdi\CeUtils\Validate\Common\BaseDocumentDefinition;
  * CAT13DOC01 - El documento tiene el nombre del nodo principal correcto
  * CAT13DOC02 - El documento tiene el espacio de nombres correcto
  */
-class DocumentDefinition extends BaseDocumentDefinition
+final class DocumentDefinition extends BaseDocumentDefinition
 {
     public static function create(): self
     {

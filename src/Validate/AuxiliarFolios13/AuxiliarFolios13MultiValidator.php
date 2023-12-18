@@ -6,7 +6,7 @@ namespace PhpCfdi\CeUtils\Validate\AuxiliarFolios13;
 
 use PhpCfdi\CeUtils\Validate\MultiValidator;
 
-class AuxiliarFolios13MultiValidator extends MultiValidator
+final class AuxiliarFolios13MultiValidator extends MultiValidator
 {
     protected array $validatorClasses = [
         Base\DocumentDefinition::class,

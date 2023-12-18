@@ -6,7 +6,7 @@ namespace PhpCfdi\CeUtils\Validate\Balanza13;
 
 use PhpCfdi\CeUtils\Validate\MultiValidator;
 
-class Balanza13MultiValidator extends MultiValidator
+final class Balanza13MultiValidator extends MultiValidator
 {
     protected array $validatorClasses = [
         Base\DocumentDefinition::class,
