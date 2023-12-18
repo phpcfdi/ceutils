@@ -20,6 +20,11 @@ Cambios en el entorno de desarrollo:
 - Se actualiza el año de la licencia.
 - Se corrige la insignia de construcción.
 - Se actualizan los archivos de configuración de las herramientas de estilo de código.
+- Se actualiza el archivo de integración continua de GitHub:
+    - Se agrega PHP 8.2 y PHP 8.3 a la matriz de pruebas.
+    - Los trabajos corren en PHP 8.3.
+    - Se configura la extensión `bcmath`.
+    - Se actualiza la directiva `::set-output` a `$GITHUB_OUTPUT`.
 - Se actualizan las herramientas de desarrollo.
 
 ### Versión 0.2.2 2022-09-28
