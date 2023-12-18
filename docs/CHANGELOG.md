@@ -25,6 +25,7 @@ Cambios en el entorno de desarrollo:
     - Los trabajos corren en PHP 8.3.
     - Se configura la extensión `bcmath`.
     - Se actualiza la directiva `::set-output` a `$GITHUB_OUTPUT`.
+    - Se permite ejecutar los flujos de trabajo a voluntad.
 - Se actualizan las herramientas de desarrollo.
 
 ### Versión 0.2.2 2022-09-28
