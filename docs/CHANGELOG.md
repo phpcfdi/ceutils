@@ -15,6 +15,10 @@ Algunas clases de validadores no estaban marcadas como *finales*.
 PHPStan detectó esto como un problema al utilizar el método estático `create(): self`.
 Para más información consulta <https://github.com/phpstan/phpstan/issues/10286>.
 
+Cambios en el entorno de desarrollo:
+
+- Se actualiza el año de la licencia.
+
 ### Versión 0.2.2 2022-09-28
 
 Se actualizan las dependencias:
